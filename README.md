@@ -1,4 +1,4 @@
-# Book Recommendations (Team Lavendar)
+# Book Recommendations (Team Lavender)
 
 ## Overview
 
@@ -145,3 +145,36 @@ The page will communicate with at least one webservice written by the team
 * The team may use additional services they write
 * The services have no required paradigm (REST, GraphQL, whatever)
     * GET requests must be idempotent, however
+
+## Design
+
+The /admin/design directory of your repo is where you'll store any documentation of your design (if you have hand-written sketches, drop in some pictures from a cellphone).  Do not get overly complicated in the design at the start - just identify the general layout, what actions the user can take, and what the app does in reaction.
+
+The goal of the initial design documentation is NOT to have everything perfect, or even good.  In fact, rough and general is ideal at this step.  You just need to have a shared basic understanding of what the app will do, and the experience of describing an actual app with a team will make our coverage later more meaningful.
+
+Here are some samples of what I expect at different levels of effort.  Any of these would be acceptable, as would non-visual descriptions, lots of arrows, multiple images, whatever works for your team.
+
+### Very Minimal Design sketch
+* https://chetmhcid.files.wordpress.com/2014/02/imag1543-recovered.jpg
+
+### Basic Design sketch
+* http://cdn.designbeep.com/wp-content/uploads/2012/05/8.website-sketches.jpg
+* http://speckycdn.sdm.netdna-cdn.com/wp-content/uploads/2011/05/wireframe-sketch-08.jpg
+
+### Fancy Design sketch
+* https://uploads.toptal.io/blog/image/138/toptal-blog-Notifeye.jpg
+
+## Responsibilities
+
+Fill in the /admin/roles.md file and list the expected "job" of each member of the team.  This is not a commitment of any kind, just an expectation.  We will use it later to match what really happened to this initial expectation.
+
+## Delivery Milestones
+
+This list will expand:
+
+* Feb 19, 11:59 pm - Have the initial design design concept in the /admin/design/ directory.  Have the /admin/roles.md file filled in.
+* Feb 26, 6:29 pm - Have JS, HTML, and CSS for both the front-end and the services in the /src/ directory (subdirectories are fine).  A package.json at your repo root should let me try the app with `npm install; npm start`.  The page should work well enough to be usable, but bugs are expected.
+* Mar 5 - Spring Break.  No deadline, but you should make sure you'll be able to make the Mar 12 deadline.
+* Mar 12 - To Be Announced
+
+
