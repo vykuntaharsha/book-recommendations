@@ -1,0 +1,50 @@
+#booklist {
+	display: inline-block;
+	margin-left: 250px;
+	margin-top: 900px;
+}
+
+.order-section {
+	display: inline-block;
+}
+
+.order-label {
+	display: inline;
+}
+
+.order-select {
+	display: inline;
+}
+
+.booklist{ 
+	width: 100%;
+}
+
+.books {
+	list-style-type: none;
+	width: 100%;
+}
+
+.books > li {
+	display: inline-block;
+	width: 150px;
+	margin-right: 8%;
+	margin-bottom: 5%;
+}
+
+.book-title {
+	text-align: center;
+	margin-bottom: -5%;
+}
+
+.book-author {
+	text-align: center;
+}
+
+.book-img {
+	width: 100%;
+}
+
+.book-author {
+	color: #9099A2;
+}
