@@ -6,7 +6,8 @@ header{
     margin:0;
     padding:0;
     text-align: right;
-    position: absolute;
+    position: fixed;
+    z-index: 1;
 }
 .main-menu{
     list-style-type: none;
@@ -42,9 +43,10 @@ nav{
     color: #FFF;
 }
 #search-icon{
+    display:none;
     width: 20px;
     margin-right:1%;
-    display: inline-block;
+    /*display: inline-block;*/
     vertical-align: bottom;
     padding: 2%;
 }
@@ -60,7 +62,7 @@ nav{
 /*-------below are side menu styles-------------------------*/
 
 .side-menu {
-    max-width: 200px;
+    width: 200px;
     /*background: #d5d5d5;*/
     border-radius: 4px;
     list-style-type: none;
@@ -104,5 +106,12 @@ nav{
 .sub-side-menu a:hover {
     background: #5d5d5d;
     color: #000000;
+}
+
+/*-----genre part-----*/
+
+#genre {
+    position: absolute;
+    margin-top: 900px;
 }
 
