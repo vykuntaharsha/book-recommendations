@@ -1,60 +1,27 @@
-
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Book Recommendations</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/css" href="nav.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>Navigation</title>
+    <link rel="stylesheet" type="text/css" href="/Users/jane/repos/my/nav.css">
 </head>
 <body>
-<header>
-  <nav>
-    <ul class="main-menu">
-      <li><a href="#genre">Genre</a></li>
-      <li><a href="#author">Author</a></li>
-      <li><a href="#title">Title</a></li>
-      <li><a href="#year">Year</a></li>
-    </ul>
-  </nav>
-  <img id="search-icon" src="images/search-icon.png">
-  <div>
-    <input id="corner-search" name="search" placeholder="search"/>
-  </div>
-</header>
-
-<main id="main-page" class="slideshow-container">
-
-    <div class="slides fade-slides">
-      <img class="img-slides" src="images/slideshow1.jpg">
-    </div>
-
-    <div class="slides fade-slides">
-      <img class="img-slides" src="images/slideshow2.jpg">
-    </div>
-
-    <div class="slides fade-slides">
-      <img class="img-slides" src="images/slideshow3.jpg">
-    </div>
-
-    <div class="dot-container">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-
-    <div class="search-container">
-        <form action="/action_page.php">
-          <input class="search-input" type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div>
-
-</main>
-
-<section id="genre">
-    <div id="sidebar">
+    <header>
+        <nav>
+            <ul class="main-menu">
+                <li><a href="#genre">Genre</a></li>
+                <li><a href="#author">Author</a></li>
+                <li><a href="#title">Title</a></li>
+                <li><a href="#year">Year</a></li>
+                <li><a href="#language">Language</a></li>
+            </ul>
+        </nav>
+        <img id="search-icon" src="images/search-icon.png">
+        <div>
+            <input id="corner-search" name="search" placeholder="search"/>
+        </div>
+    </header>
+    <section id="sidebar">
         <ul class="side-menu">
             <li>
                 <div class="menu-item">Romance</div>
@@ -147,10 +114,7 @@
                 </ul>
             </li>
         </ul>
-    </div>
-</section>
-
-<script type="text/javascript" src="index.js"></script>
-<script type="text/javascript" src="nav.js" ></script>
+    </section>
+<script src="nav.js" type="text/javascript"></script>
 </body>
-</html> 
+</html>
