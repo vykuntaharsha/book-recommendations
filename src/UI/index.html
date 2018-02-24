@@ -4,25 +4,27 @@
 <head>
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Book Recommendations</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/css" href="nav.css">
-    <link rel="stylesheet" type="text/css" href="books.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/books.css">
+    <link rel="stylesheet" type="text/css" href="css/book-details.css">
 </head>
 <body>
-<header>
-  <nav>
-    <ul class="main-menu">
-      <li><a href="#genre">Genre</a></li>
-      <li><a href="#author">Author</a></li>
-      <li><a href="#title">Title</a></li>
-      <li><a href="#year">Year</a></li>
-    </ul>
-  </nav>
-  <img id="search-icon" src="images/search-icon.png">
-  <div>
-    <input id="corner-search" name="search" placeholder="search"/>
-  </div>
-</header>
+    <header>
+      <nav class="nav-text">
+        <a class="nav-logo" href=""><img src="images/logo.png"></a>
+        <ul class="main-menu">
+          <li><a href="#genre">Genre</a></li>
+          <li><a href="#author">Author</a></li>
+          <li><a href="#title">Title</a></li>
+          <li><a href="#popular">Popular</a></li>
+        </ul>
+      </nav>
+      <img id="search-icon" src="images/search-icon.png">
+      <div>
+        <input id="corner-search" name="search" placeholder="search"/>
+      </div>
+    </header>
 
 <main id="main-page" class="slideshow-container">
 
@@ -211,8 +213,84 @@
         </ul>
     </div>
 </section>
-
-<script type="text/javascript" src="index.js"></script>
-<script type="text/javascript" src="nav.js" ></script>
+<section id="book-details" class="hide">
+    <div class="book-details">
+        <div class="edit">
+            <ul class="edit-book">
+                <li class="edit-button">Edit</li>
+                <li class="reset-button hide">Reset</li>
+                <li class="save-button hide">Save</li>
+            </ul>
+        </div>
+        <div class="image-holder">
+            <img class="book-image-details" src="" alt="image">
+            <div class="vote">
+                <img class="vote-button" src="images/vote.svg">
+                <img class="voted-button hide"
+                src="images/voted.svg">
+                <a class="book-votes-details"></a>
+            </div>
+        </div><!-- book description along with titles
+     --><div class="book-contents">
+            <h1 class="book-title-details title"></h1>
+            <small class="title">by</small>
+            <h4 class="book-author-details title"></h4>
+            <h5 class="book-isbn-details title"></h5>
+            <h5 class="book-genre-details title"></h5>
+            <hr/>
+            <p class="book-description-details title"></p>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="connect-details footer">
+        <ul class="social-networks">
+			<li>
+                <a href="#"> <img class="social-network-img" src="images/facebook.svg"></a>
+            </li>
+			<li>
+                <a href="#"><img class="social-network-img" src="images/twitter.svg"></a>
+            </li>
+		</ul>
+    </div>
+    <div class="terms-details footer">
+        <div class="container">
+		<div class="footer-top">
+			<ul class="footer-links">
+				<li>
+					<a href="#">Privacy Policy</a>
+				</li>
+				<li>
+					<a href="#">Terms & Conditions</a>
+				</li>
+			</ul>
+			<ul class="footer-menu">
+				<li>
+					<a href="#">The story</a>
+				</li>
+				<li>
+					<a href="#">About us</a>
+				</li>
+				<li>
+					<a href="#">Social responsibility</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-bottom">
+			<nav class="footer-nav">
+				<ul>
+					<li>Send us <a href="#">e-mail</a></li>
+					<li>Follow us on <a href="#">twitter</a></li>
+					<li>Like us on  <a href="#">facebook</a></li>
+				</ul>
+			</nav>
+            <span class="copyright">LAVENDER © 2018</span>
+		</div>
+	</div>
+    </div>
+</footer>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/nav.js" ></script>
+<script type="text/javascript" src="js/for-browserify-book-details.js"></script>
 </body>
 </html>

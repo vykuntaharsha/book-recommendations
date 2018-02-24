@@ -1,0 +1,259 @@
+body{
+    min-width: 720px;
+    overflow-x: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+.slides {
+  position: relative;
+  margin-top: 50px;
+}
+
+.img-slides{
+  width: 100%;
+  height: 600px;
+}
+
+.slideshow-container {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  min-height: 500px;
+  max-height: 800px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background 1s;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+
+.active {
+  background-color: #717171;
+}
+
+
+.fade-slides {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.dot-container{
+  text-align:center;
+  position: absolute;
+  bottom:5%;
+  left:50%;
+}
+.search-container{
+  position: absolute;
+  top:40%;
+  left:25%;
+  width: 50%;
+  overflow-x: hidden;
+}
+.search-form{
+    text-align: center;
+}
+.search-form >button {
+  border-radius: 0px 2px 2px 0px;
+  vertical-align: bottom;
+  height: 48px;
+  width: 48px;
+  padding: 4px;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+}
+
+.search-form > button img{
+    width: 24px;
+}
+
+.search-form{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.search-form > button:hover {
+  background: #ccc;
+}
+
+.search-input{
+  border-radius: 2px 0px 0px 2px;
+  width: 80%;
+  max-width: 700px;
+  height: 40px;
+  padding: 4px 10px;
+  font-size: 17px;
+  border: none;
+}
+
+footer{
+    height: 350px;
+    background-color: #D5D5D5;
+}
+
+footer li{
+    display: inline;
+}
+
+footer a{
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+footer a:hover{
+    color: #8c8c8c;
+}
+
+.terms-details{
+    position: relative;
+    border-top: 1px solid #959595;
+    height: 100px;
+}
+
+.connect-details{
+    position: relative;
+    height: 250px;
+    text-align: center;
+}
+.social-networks{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0px;
+    margin-left: -70px;
+    margin-top: -50px;
+    list-style-type: none;
+}
+
+.social-networks > li{
+    margin: 0px 20px;
+}
+
+.social-network-img {
+    width: 30px;
+    border: 1px solid #959595;
+    border-radius: 50%;
+    padding: 1.2rem;
+}
+
+.social-network-img:hover{
+    background-color: #f2f2f2;
+    border-color: #f2f2f2;
+}
+
+.footer-top .footer-links{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0px;
+}
+
+.footer-links{
+    position: absolute;
+    right: 5%;
+}
+
+.footer-links > li{
+    position: relative;
+    padding: 0px 10px;
+}
+
+.footer-links li:not(:first-child):before{
+    content: '|';
+    position: absolute;
+    top: -1px;
+    left: -5px;
+    color: #a7a7a7;
+    width: 1px;
+    height: 12px;
+    font-size: 12px;
+}
+
+.footer-top .footer-menu{
+    margin: 0px;
+    margin-top: 15px;
+    margin-left: 5%;
+    padding: 0px;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+.footer-menu > li{
+    position: relative;
+    padding: 0px 10px;
+}
+
+.footer-menu li:not(:first-child):before {
+    content: "|";
+    position: absolute;
+    top: -1px;
+    left: -5px;
+    color: #a7a7a7;
+    width: 1px;
+    height: 12px;
+    font-size: 12px;
+}
+.copyright{
+    position: absolute;
+    margin-top: 28px;
+    padding-left: 1%;
+    overflow: hidden;
+    text-transform: uppercase;
+    color: #8c8c8c;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    margin-left: 5%;
+    font-size: 12px;
+}
+.footer-bottom{
+    position: relative;
+}
+.footer-bottom .footer-nav{
+    position: absolute;
+    right: 5%;
+    text-align: right;
+    margin: 0px;
+    margin-top: 15px;
+    margin-left: 15%;
+    padding: 0px;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+
+.footer-nav  li{
+    padding-left: 15px;
+    color: #8c8c8c;
+}
+
+.footer-nav a{
+    border-bottom: 1px solid;
+    padding-bottom: 1px;
+    padding-left: 1px;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .2}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .2}
+  to {opacity: 1}
+}
