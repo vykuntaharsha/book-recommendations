@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const PORT = 4000;
+const PORT = 3000;
 
-app.use(express.static('src/ui'));
+app.use(express.static('src/public'));
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
