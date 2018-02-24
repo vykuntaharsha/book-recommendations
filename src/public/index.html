@@ -1,10 +1,296 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Book Recommendations</title>
-    </head>
-    <body>
-            app started
-    </body>
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Book Recommendations</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/books.css">
+    <link rel="stylesheet" type="text/css" href="css/book-details.css">
+</head>
+<body>
+    <header>
+      <nav class="nav-text">
+        <a class="nav-logo" href=""><img src="images/logo.png"></a>
+        <ul class="main-menu">
+          <li><a href="#genre">Genre</a></li>
+          <li><a href="#author">Author</a></li>
+          <li><a href="#title">Title</a></li>
+          <li><a href="#popular">Popular</a></li>
+        </ul>
+      </nav>
+      <img id="search-icon" src="images/search-icon.png">
+      <div>
+        <input id="corner-search" name="search" placeholder="search"/>
+      </div>
+    </header>
+
+<main id="main-page" class="slideshow-container">
+
+    <div class="slides fade-slides">
+      <img class="img-slides" src="images/slideshow1.jpg">
+    </div>
+
+    <div class="slides fade-slides">
+      <img class="img-slides" src="images/slideshow2.jpg">
+    </div>
+
+    <div class="slides fade-slides">
+      <img class="img-slides" src="images/slideshow3.jpg">
+    </div>
+
+    <div class="dot-container">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <div class="search-container">
+        <form class="search-form" action="index.html">
+          <input class="search-input" type="text" placeholder="Search..." name="search"><!-- search
+          icon --><button type="submit"><img src="images/search.png"></button>
+        </form>
+      </div>
+
+</main>
+
+<section id="genre">
+    <div id="sidebar">
+        <ul class="side-menu">
+            <li>
+                <div class="menu-item">Romance</div>
+                <ul class="sub-side-menu">
+                    <li><a href="#">Book Name1</a></li>
+                    <li><a href="#">Book Name2</a></li>
+                    <li><a href="#">Book Name3</a></li>
+                    <li><a href="#">Book Name4</a></li>
+                    <li><a href="#">Book Name5</a></li>
+                    <li><a href="#">Book Name6</a></li>
+                    <li><a href="#">Book Name7</a></li>
+                    <li><a href="#">Book Name8</a></li>
+                    <li><a href="#">Book Name9</a></li>
+                    <li><a href="#">Book Name10</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="menu-item">Science fiction</div>
+                <ul class="sub-side-menu">
+                    <li><a href="#">Book Name1</a></li>
+                    <li><a href="#">Book Name2</a></li>
+                    <li><a href="#">Book Name3</a></li>
+                    <li><a href="#">Book Name4</a></li>
+                    <li><a href="#">Book Name5</a></li>
+                    <li><a href="#">Book Name6</a></li>
+                    <li><a href="#">Book Name7</a></li>
+                    <li><a href="#">Book Name8</a></li>
+                    <li><a href="#">Book Name9</a></li>
+                    <li><a href="#">Book Name10</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="menu-item">Children's</div>
+                <ul class="sub-side-menu">
+                    <li><a href="#">Book Name1</a></li>
+                    <li><a href="#">Book Name2</a></li>
+                    <li><a href="#">Book Name3</a></li>
+                    <li><a href="#">Book Name4</a></li>
+                    <li><a href="#">Book Name5</a></li>
+                    <li><a href="#">Book Name6</a></li>
+                    <li><a href="#">Book Name7</a></li>
+                    <li><a href="#">Book Name8</a></li>
+                    <li><a href="#">Book Name9</a></li>
+                    <li><a href="#">Book Name10</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="menu-item">History</div>
+                <ul class="sub-side-menu">
+                    <li><a href="#">Book Name1</a></li>
+                    <li><a href="#">Book Name2</a></li>
+                    <li><a href="#">Book Name3</a></li>
+                    <li><a href="#">Book Name4</a></li>
+                    <li><a href="#">Book Name5</a></li>
+                    <li><a href="#">Book Name6</a></li>
+                    <li><a href="#">Book Name7</a></li>
+                    <li><a href="#">Book Name8</a></li>
+                    <li><a href="#">Book Name9</a></li>
+                    <li><a href="#">Book Name10</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="menu-item">Fiction</div>
+                <ul class="sub-side-menu">
+                    <li><a href="#">Book Name1</a></li>
+                    <li><a href="#">Book Name2</a></li>
+                    <li><a href="#">Book Name3</a></li>
+                    <li><a href="#">Book Name4</a></li>
+                    <li><a href="#">Book Name5</a></li>
+                    <li><a href="#">Book Name6</a></li>
+                    <li><a href="#">Book Name7</a></li>
+                    <li><a href="#">Book Name8</a></li>
+                    <li><a href="#">Book Name9</a></li>
+                    <li><a href="#">Book Name10</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="menu-item">Education</div>
+                <ul class="sub-side-menu">
+                    <li><a href="#">Book Name1</a></li>
+                    <li><a href="#">Book Name2</a></li>
+                    <li><a href="#">Book Name3</a></li>
+                    <li><a href="#">Book Name4</a></li>
+                    <li><a href="#">Book Name5</a></li>
+                    <li><a href="#">Book Name6</a></li>
+                    <li><a href="#">Book Name7</a></li>
+                    <li><a href="#">Book Name8</a></li>
+                    <li><a href="#">Book Name9</a></li>
+                    <li><a href="#">Book Name10</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section id="booklist">
+    <div class="booklist">
+        <div class="order-section">
+            <p class="order-label">Order:</p>
+            <select class="order-select">
+                <option value="1">by name</option>
+                <option value="2">by votes</option>
+            </select>
+        </div>
+        <ul class="books">
+            <li>
+                <a href=""><img class="book-li img-0 book-img" src="images/headfirstjava.jpg"></a>
+                <a class="book-title" href=""><p class="book-li book-title">headerfirstjava</p></a>
+                <p class="book-li book-author">Kevin</p>
+                <button class="book-li like">vote</button>
+            </li>
+            <li>
+                <a href=""><img class="book-li img-0 book-img" src="images/headfirstjava.jpg"></a>
+                <a class="book-title" href=""><p class="book-li book-title">headerfirstjava</p></a>
+                <p class="book-li book-author">Kevin</p>
+                <button class="book-li like">vote</button>
+            </li>
+            <li>
+                <a href=""><img class="book-li img-0 book-img" src="images/headfirstjava.jpg"></a>
+                <a class="book-title" href=""><p class="book-li book-title">headerfirstjava</p></a>
+                <p class="book-li book-author">Kevin</p>
+                <button class="book-li like">vote</button>
+            </li>
+            <li>
+                <a href=""><img class="book-li img-0 book-img" src="images/headfirstjava.jpg"></a>
+                <a class="book-title" href=""><p class="book-li book-title">headerfirstjava</p></a>
+                <p class="book-li book-author">Kevin</p>
+                <button class="book-li like">vote</button>
+            </li>
+            <li>
+                <a href=""><img class="book-li img-0 book-img" src="images/headfirstjava.jpg"></a>
+                <a class="book-title" href=""><p class="book-li book-title">headerfirstjava</p></a>
+                <p class="book-li book-author">Kevin</p>
+                <button class="book-li like">vote</button>
+            </li>
+            <li>
+                <a href=""><img class="book-li img-0 book-img" src="images/headfirstjava.jpg"></a>
+                <a class="book-title" href=""><p class="book-li book-title">headerfirstjava</p></a>
+                <p class="book-li book-author">Kevin</p>
+                <button class="book-li like">vote</button>
+            </li>
+            <li>
+                <a href=""><img class="book-li img-0 book-img" src="images/headfirstjava.jpg"></a>
+                <a class="book-title" href=""><p class="book-li book-title">headerfirstjava</p></a>
+                <p class="book-li book-author">Kevin</p>
+                <button class="book-li like">vote</button>
+            </li>
+            <li>
+                <a href=""><img class="book-li img-0 book-img" src="images/headfirstjava.jpg"></a>
+                <a class="book-title" href=""><p class="book-li book-title">headerfirstjava</p></a>
+                <p class="book-li book-author">Kevin</p>
+                <button class="book-li like">vote</button>
+            </li>
+        </ul>
+    </div>
+</section>
+<section id="book-details" class="hide">
+    <div class="book-details">
+        <div class="edit">
+            <ul class="edit-book">
+                <li class="edit-button">Edit</li>
+                <li class="reset-button hide">Reset</li>
+                <li class="save-button hide">Save</li>
+            </ul>
+        </div>
+        <div class="image-holder">
+            <img class="book-image-details" src="" alt="image">
+            <div class="vote">
+                <img class="vote-button" src="images/vote.svg">
+                <img class="voted-button hide"
+                src="images/voted.svg">
+                <a class="book-votes-details"></a>
+            </div>
+        </div><!-- book description along with titles
+     --><div class="book-contents">
+            <h1 class="book-title-details title"></h1>
+            <small class="title">by</small>
+            <h4 class="book-author-details title"></h4>
+            <h5 class="book-isbn-details title"></h5>
+            <h5 class="book-genre-details title"></h5>
+            <hr/>
+            <p class="book-description-details title"></p>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="connect-details footer">
+        <ul class="social-networks">
+			<li>
+                <a href="#"> <img class="social-network-img" src="images/facebook.svg"></a>
+            </li>
+			<li>
+                <a href="#"><img class="social-network-img" src="images/twitter.svg"></a>
+            </li>
+		</ul>
+    </div>
+    <div class="terms-details footer">
+        <div class="container">
+		<div class="footer-top">
+			<ul class="footer-links">
+				<li>
+					<a href="#">Privacy Policy</a>
+				</li>
+				<li>
+					<a href="#">Terms & Conditions</a>
+				</li>
+			</ul>
+			<ul class="footer-menu">
+				<li>
+					<a href="#">The story</a>
+				</li>
+				<li>
+					<a href="#">About us</a>
+				</li>
+				<li>
+					<a href="#">Social responsibility</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-bottom">
+			<nav class="footer-nav">
+				<ul>
+					<li>Send us <a href="#">e-mail</a></li>
+					<li>Follow us on <a href="#">twitter</a></li>
+					<li>Like us on  <a href="#">facebook</a></li>
+				</ul>
+			</nav>
+            <span class="copyright">LAVENDER © 2018</span>
+		</div>
+	</div>
+    </div>
+</footer>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/nav.js" ></script>
+<script type="text/javascript" src="js/for-browserify-book-details.js"></script>
+</body>
 </html>

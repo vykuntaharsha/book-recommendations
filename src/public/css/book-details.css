@@ -1,0 +1,141 @@
+#book-details{
+    display: inline-block;
+    padding: 1rem;
+	margin-left: 250px;
+    margin-top: 100px;
+}
+
+#book-details.hide{
+    display: none;
+}
+
+.image-holder{
+    width: 400px;
+    height: 500px;
+    text-align: center;
+}
+
+.book-image-details {
+    margin: auto;
+    max-width: 100%;
+    max-height: 90%;
+    display: block;
+}
+
+.vote{
+    text-align: center;
+    display: block;
+    background: none;
+    border: none;
+    margin: 5px auto;
+    color: #666666;
+}
+
+.vote > img{
+    width: 24px;
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    margin: 0px 1px -8px 0px;
+}
+
+.vote > img:hover{
+    background-color: lightgrey;
+    border-radius: 50%;
+}
+
+.vote > img:active {
+  transform: translateY(2px);
+}
+
+.image-holder{
+    max-width: 220px;
+    display: inline-block;
+}
+
+.book-contents{
+    background-color: white;
+    vertical-align: top;
+    overflow: hidden;
+    font-weight: 300;
+    width: 70%;
+    max-width: 800px;
+    display: inline-block;
+    padding: 5px;
+    margin: auto;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    min-height: 300px;
+    color: #393939;
+}
+
+.edit{
+    text-align: right;
+}
+
+.edit-book{
+    cursor: pointer;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.edit-book > li{
+    border-bottom: 1px solid;
+    padding-bottom: 1px;
+    display: inline;
+    padding-left: 2px;
+}
+
+.edit-book > li:hover{
+    color: darkgrey;
+}
+.edit-book > li.hide{
+    display: none;
+}
+
+.title{
+    margin: 5px;
+    padding: 2px;
+}
+
+.book-title-details{
+    font-family: "ScotchRomanMT", serif;
+    font-size: 42px;
+    line-height: 46px;
+    color: #393939;
+    display: block;
+    margin-top: 10px;
+}
+
+input.title{
+    border: 1px inset;
+}
+
+.book-author-details{
+    display: inline-block;
+    color: #666666;
+}
+
+.book-votes-details{
+    color: #393939;
+}
+
+.book-contents > p{
+    font-family: proxima-nova;
+    line-height: 1.55rem;
+}
+
+.book-description-details{
+    min-height: 500px;
+}
+
+.edit-description{
+    background-color: white;
+    border: 1px inset;
+    height: 100px;
+    overflow-y: auto;
+}
+
+.hide{
+    display: none;
+}

@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/seainfo6250/lavender.git"
   },
-  "author": "Harsha Vykunta <vyukunta.h@husky.neu.edu>",
+  "author": "Harsha Vykunta <vykunta.h@husky.neu.edu>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/seainfo6250/lavender/issues"
