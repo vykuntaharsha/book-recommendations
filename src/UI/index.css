@@ -1,3 +1,4 @@
+/*  ---main page by Ching-Chi (Amanda) ---*/
 .slides {
   position: relative;
   margin-top: 150px;
@@ -18,7 +19,7 @@
 .slideshow-container {
   background-position: center;
   background-size: cover;
-  /*background-color: #D5D5D5;*/
+  background-color: #D5D5D5;
   height: 800px;
   width: 100%;
   background-repeat: no-repeat;
