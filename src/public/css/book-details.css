@@ -1,15 +1,6 @@
 .hide{
     display: none;
 }
-.pre-path{
-    display: inline-block;
-    padding-left: 1%;
-    margin-bottom: 5px;
-}
-.pre-path > a{
-    text-decoration: underline;
-    cursor: pointer;
-}
 .image-holder{
     width: 250px;
     height: 300px;
