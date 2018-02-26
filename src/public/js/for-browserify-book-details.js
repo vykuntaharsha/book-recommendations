@@ -98,6 +98,7 @@ const renderBookDetails = (url) => {
 
 }
 
+renderBookDetails('https://seainfo6250.github.io/lavender/book.json');
 //exporting for browserify
 module.exports = {
     renderBookDetails : renderBookDetails
