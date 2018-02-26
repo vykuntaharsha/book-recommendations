@@ -31,21 +31,21 @@ const renderBookDetails = (url) => {
         document.querySelector('.reset-button').classList.remove('hide');
         document.querySelector('.save-button').classList.remove('hide');
 
-        document.querySelector('.book-title').outerHTML = `<input class="book-title title" type="text" value="${book.title}">`;
+        document.querySelector('.book-title-details').outerHTML = `<input class="book-title-details title" type="text" value="${book.title}">`;
 
-        document.querySelector('.book-author').outerHTML = `<input class="book-author title" type="text" value="${book.author}">`;
+        document.querySelector('.book-author-details').outerHTML = `<input class="book-author-details title" type="text" value="${book.author}">`;
 
-        document.querySelector('.book-genre').outerHTML = `<input class="book-genre title" type="text" value="${book.genre}">`;
+        document.querySelector('.book-genre-details').outerHTML = `<input class="book-genre-details title" type="text" value="${book.genre}">`;
 
-        document.querySelector('.book-description').outerHTML = `<div class="book-description title edit-description" contenteditable="true">${book.description}</div>`;
+        document.querySelector('.book-description-details').outerHTML = `<div class="book-description-details title edit-description" contenteditable="true">${book.description}</div>`;
     }
 
     function saveBookDetails() {
         // saving the book details
-        book.title = document.querySelector('.book-title').value;
-        book.author = document.querySelector('.book-author').value;
-        book.genre = document.querySelector('.book-genre').value;
-        book.description = document.querySelector('.book-description').innerHTML;
+        book.title = document.querySelector('.book-title-details').value;
+        book.author = document.querySelector('.book-author-details').value;
+        book.genre = document.querySelector('.book-genre-details').value;
+        book.description = document.querySelector('.book-description-details').innerHTML;
 
         renderSavedBookData();
         renderBookDescription(book);
@@ -58,24 +58,24 @@ const renderBookDetails = (url) => {
         document.querySelector('.reset-button').classList.add('hide');
         document.querySelector('.save-button').classList.add('hide');
 
-        document.querySelector('.book-title').outerHTML = `<h1 class="book-title title"></h1> `;
+        document.querySelector('.book-title-details').outerHTML = `<h1 class="book-title-details title"></h1> `;
 
-        document.querySelector('.book-author').outerHTML = `<h4 class="book-author title"></h4>`;
+        document.querySelector('.book-author-details').outerHTML = `<h4 class="book-author-details title"></h4>`;
 
-        document.querySelector('.book-genre').outerHTML = `<h5 class="book-genre title"></h5>`;
+        document.querySelector('.book-genre-details').outerHTML = `<h5 class="book-genre-details title"></h5>`;
 
-        document.querySelector('.book-description').outerHTML = `<p class="book-description title"</p>`;
+        document.querySelector('.book-description-details').outerHTML = `<p class="book-description-details title"</p>`;
     }
 
     function renderBookDescription() {
         // rendering the book description
-        document.querySelector('.book-title').innerHTML = book.title;
-        document.querySelector('.book-image').src = book.image;
-        document.querySelector('.book-isbn').innerHTML = book.isbn;
-        document.querySelector('.book-author').innerHTML = book.author;
-        document.querySelector('.book-genre').innerHTML = book.genre;
-        document.querySelector('.book-votes').innerHTML = book.votes;
-        document.querySelector('.book-description').innerHTML = book.description;
+        document.querySelector('.book-title-details').innerHTML = book.title;
+        document.querySelector('.book-image-details').src = book.image;
+        document.querySelector('.book-isbn-details').innerHTML = book.isbn;
+        document.querySelector('.book-author-details').innerHTML = book.author;
+        document.querySelector('.book-genre-details').innerHTML = book.genre;
+        document.querySelector('.book-votes-details').innerHTML = book.votes;
+        document.querySelector('.book-description-details').innerHTML = book.description;
 
     }
 
