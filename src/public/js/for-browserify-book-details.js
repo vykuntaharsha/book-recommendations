@@ -89,7 +89,7 @@ const renderBookDetails = (url) => {
             book.image = data.image;
             book.isbn = data.isbn;
             book.author = data.author;
-            book.genre = data.genre;
+            book.genre = data.genre.name;
             book.votes = data.votes;
             book.description = data.description;
             renderBookDescription();

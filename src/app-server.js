@@ -8,19 +8,24 @@ const books = require('./books');
 app.use(express.static('src/public'));
 app.set('json spaces', 2);
 
-app.get('/genres', (req,res) =>{
+app.get('/api/genres', (req,res) =>{
     const noOfGenres = req.query.total || genres.length;
     res.json(genres.slice(0,noOfGenres));
 
 });
 
-app.get('/books', (req,res) =>{
+app.get('/api/books', (req,res) =>{
     let noOfBooks = req.query.maxResults || 20;
     if(noOfBooks > 40){
         noOfBooks = 40;
     }
     res.json(books.slice(0,noOfBooks));
 
+});
+
+app.get('/api/books', (req,res) => {
+    const isbn = req.query.isbn;
+    res.json(books.filter(book => book.isbn === isbn )[0]);
 });
 
 app.listen(PORT, () => {
