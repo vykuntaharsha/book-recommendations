@@ -21,24 +21,17 @@ header{
 }
 
 .nav-text{
-<<<<<<< HEAD:src/UI/nav.css
-     height: 22%;
-=======
     height: 50px;
->>>>>>> 931fa14d12fff8105801fc3c6f1ce1f385f618c1:src/public/css/nav.css
     text-align: right;
     font-size: 22px;
     color: #FFF;
 }
 
-<<<<<<< HEAD:src/UI/nav.css
-
-=======
 .nav-logo > img{
     position: absolute;
     top: 40px;
 }
->>>>>>> 931fa14d12fff8105801fc3c6f1ce1f385f618c1:src/public/css/nav.css
+
 .main-menu{
     list-style-type: none;
     margin-right: 2%;
