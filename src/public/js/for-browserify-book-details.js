@@ -89,7 +89,7 @@ const renderBookDetails = (url) => {
             book.image = data.image;
             book.isbn = data.isbn;
             book.author = data.author;
-            book.genre = data.genre;
+            book.genre = data.genre.name;
             book.votes = data.votes;
             book.description = data.description;
             renderBookDescription();
@@ -98,6 +98,7 @@ const renderBookDetails = (url) => {
 
 }
 
+renderBookDetails('https://seainfo6250.github.io/lavender/book.json');
 //exporting for browserify
 module.exports = {
     renderBookDetails : renderBookDetails
