@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/seainfo6250/lavender#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "browserify": "^16.1.0",
     "express": "^4.16.2"
   }
