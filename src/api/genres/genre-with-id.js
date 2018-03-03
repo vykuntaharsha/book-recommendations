@@ -1,10 +1,10 @@
-const genres = require('../../../data').genres;
+const data = require('../../../data');
 const constants = require('../constants');
 
 module.exports = (req, res) => {
     const id = req.params.id;
 
-    genre = genres.find( genre => genre.id === id);
+    const genre = data.genres.find( genre => genre.id === id);
 
     if(genre){
         res.status(200).json({genre});
