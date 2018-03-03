@@ -10,7 +10,10 @@ app.set('json spaces', 2);
 
 //setting the app to use required modules
 app.use(express.static('src/public'));
-app.use(bodyParser.json());
+app.use(bodyParser.json({
+    limit : '10kb',
+    extended : true
+}));
 app.use('/api', api);
 
 app.listen(PORT, () => {
