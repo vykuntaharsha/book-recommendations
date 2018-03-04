@@ -174,7 +174,7 @@ Results:
 `PUT localhost:3000/api/books/761183272`
 
 * Updates the data of the specified book.
-* Returns HTTP status `204` is successfully found and modified.
+* Returns HTTP status `204` if successfully found and modified.
 * Returns HTTP status `406` if body data is not valid.
 * Returns HTTP status `400` if the respective book is not found.
 
@@ -190,12 +190,12 @@ PUT body: Editing the description in this case
       "id": "3",
       "name": "Calendars"
     },
-    "votes": "",
+    "votes": 1,
     "description": "edited"
   }
 }
 ```
-Results: `HTTP status 204`
+Results: `HTTP status 204` and updates the specified book.
 
 #### OrderBy
 
@@ -233,6 +233,27 @@ Results:
 }
 ```
 
+#### Votes
+
+`PUT localhost:3000/api/books/761183272/votes`
+
+* Updates the votes of the specific book.
+* Returns HTTP status `204` if successfully found and modified.
+* Returns HTTP status `406` if body data is not valid.
+* Returns HTTP status `400` if the respective book is not found.
+
+PUT body: modifying votes in this case
+
+```
+{
+  "book": {
+    "isbn": "761183272",
+    "votes": 2,
+  }
+}
+```
+
+Results: `HTTP status 204` and updates the votes of the specified book.
 
 ##### Examples
 
@@ -603,5 +624,28 @@ Books within genre combined with other queries:
     .
     .
   ]
+}
+```
+
+## Users
+
+|Field   |Type    |Description       |
+|--------|--------|------------------|
+|id      | Number | Unique id of user|
+
+#### Login
+
+`POST localhost:3000/users`
+
+* Used to mimic the login.
+* Returns the user object sequentially.
+
+Results:
+
+```
+{
+  "user": {
+    "id": 1
+  }
 }
 ```

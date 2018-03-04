@@ -3,6 +3,7 @@ const app = express();
 const PORT = 3000;
 
 const api = require('./api');
+const users = require('./users');
 const bodyParser = require('body-parser');
 
 //setting the json spacing
@@ -15,6 +16,7 @@ app.use(bodyParser.json({
     extended : true
 }));
 app.use('/api', api);
+app.use('/users', users);
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
