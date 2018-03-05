@@ -41,6 +41,8 @@
 .book-title {
 	text-align: center;
 	margin-bottom: -5%;
+	width: 150px;
+	height: 72px;
 }
 
 .book-author {
@@ -48,9 +50,15 @@
 }
 
 .book-img {
-	width: 100%;
+	width: 150px;
+	height: 180px;
 }
 
 .book-author {
 	color: #9099A2;
+}
+
+.book-vote {
+	display: inline;
+	margin-left: 25px;
 }
