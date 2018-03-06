@@ -23,7 +23,15 @@ function isValidGenre( genre ) {
     return false;
 }
 
+function isValidUser( user ) {
+    const index = data.userModel.users.findIndex( u => u.id === user.id );
+    if( index >= 0 ){
+        return true;
+    }
+    return false;
+}
 module.exports = {
     isValidBook,
-    isValidGenre
+    isValidGenre,
+    isValidUser
 };
