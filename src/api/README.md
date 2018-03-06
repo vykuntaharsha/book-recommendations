@@ -170,6 +170,7 @@ Results:
   }
 }
 ```
+Update Book:
 
 `PUT localhost:3000/api/books/761183272`
 
@@ -235,25 +236,48 @@ Results:
 
 #### Votes
 
-`PUT localhost:3000/api/books/761183272/votes`
+`POST localhost:3000/api/books/761183272/vote`
 
+* Requires a body with a valid `user` object to vote/de-vote.
 * Updates the votes of the specific book.
+* Devotes if user is already voted for the specified book.
 * Returns HTTP status `204` if successfully found and modified.
-* Returns HTTP status `406` if body data is not valid.
+* Returns HTTP status `406` if body data/user is not valid.
 * Returns HTTP status `400` if the respective book is not found.
 
-PUT body: modifying votes in this case
+POST body:
 
 ```
 {
-  "book": {
-    "isbn": "761183272",
-    "votes": 2,
+  "user": {
+    "id": 1
   }
 }
 ```
 
 Results: `HTTP status 204` and updates the votes of the specified book.
+
+Voted Users:
+
+`GET localhost:3000/api/books/761183272/voted-users`
+
+* Cannot be combined with other queries.
+* Returns all the users who voted for the specific book.
+* Returns HTTP status `200` if successfully found the book.
+* Returns HTTP status `404` if requested book is not found.
+
+Results:
+
+```
+{
+  "noOfUsers": 1,
+  "users": [
+    {
+      "id": 1
+    }
+  ]
+}
+```
 
 #### Search
 

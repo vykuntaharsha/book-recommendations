@@ -7,12 +7,14 @@ const booksStartIndex = require('./books-start-index');
 const booksMaxResults = require('./books-max-results');
 const bookWithId = require('./book-with-id');
 const updateBook = require('./update-book');
-const updateBookVotes = require('./update-book-votes');
+const usersVotedForBook = require('./users-voted-for-book');
+const voteForBook = require('./vote-for-book');
 
 router.get('/', [books, orderBooks, booksStartIndex, booksMaxResults]);
 router.get('/search', [books, searchWithFilters, searchWithKeyWords, orderBooks, booksStartIndex, booksMaxResults]);
 router.get('/:id', bookWithId);
 router.put('/:id', updateBook);
-router.put('/:id/votes', updateBookVotes);
+router.get('/:id/voted-users', usersVotedForBook);
+router.post('/:id/vote', voteForBook);
 
 module.exports = router;
