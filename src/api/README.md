@@ -255,6 +255,56 @@ PUT body: modifying votes in this case
 
 Results: `HTTP status 204` and updates the votes of the specified book.
 
+#### Search
+
+`GET localhost:3000/api/books/search?q[keywords]=The+Walking+Dead&q[genre]=comics&q[author]=robert`
+
+* `q[keywords]` is used for searching using keywords.
+* `q[isbn]` is used to lookup the isbn of the books.
+* `q[title]` is used to lookup in the title of the book.
+* `q[author]` is used to lookup in the author of the book.
+* `q[genre]` is used to lookup in the genres.
+* can be combined with other query parameters for paging.
+* by default returns 10 results.
+
+Results:
+
+```
+{
+  "noOfBooks": 10,
+  "books": [
+    {
+      "isbn": "1632154560",
+      "image": "http://ecx.images-amazon.com/images/I/516HHkU2bKL.jpg",
+      "title": "The Walking Dead Compendium Volume 3 (Walking Dead Compendium Tp)",
+      "author": "Robert Kirkman",
+      "genre": {
+        "id": "5",
+        "name": "Comics & Graphic Novels"
+      },
+      "votes": 0,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    {
+      "isbn": "1607060760",
+      "image": "http://ecx.images-amazon.com/images/I/51m-0BhIqDL.jpg",
+      "title": "The Walking Dead:  Compendium One",
+      "author": "Robert Kirkman",
+      "genre": {
+        "id": "5",
+        "name": "Comics & Graphic Novels"
+      },
+      "votes": 0,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    .
+    .
+    .
+  ]
+}
+```
+
+
 ##### Examples
 
 StartIndex and MaxResults:  
