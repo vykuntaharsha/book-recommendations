@@ -37,7 +37,23 @@ function findGenre(id){
     }
 }
 
+
+const userModel = new function(){
+    let userIndex = -1;
+
+    //stores user objects
+    this.users = [ {id:1}, {id:2}, {id:3} ];
+
+    //returns a user object in sequence
+    this.getUser = function(){
+        userIndex += 1;
+        if(userIndex == this.users.length) userIndex = 0;
+        return this.users[userIndex];
+    };
+};
+
 module.exports = {
-    genres : genres,
-    books : books
+    genres,
+    books,
+    userModel
 };

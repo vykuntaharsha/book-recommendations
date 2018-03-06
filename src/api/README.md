@@ -2,15 +2,15 @@
 
 ## Books
 
-|Field       |Description                    |
-|------------|-------------------------------|
-|isbn        | Book's unique id              |
-|image       | Url to the book's image       |
-|title       | The title of the book         |
-|author      | The author of the book        |
-|genre       | The genre of the book         |
-|votes       | Number of votes the book has  |
-|description | Description about the book    |
+|Field       |Type   |Description                    |
+|------------|-------|-------------------------------|
+|isbn        |String |Book's unique id              |
+|image       |String |Url to the book's image       |
+|title       |String |The title of the book         |
+|author      |String |The author of the book        |
+|genre       |Object |The genre of the book         |
+|votes       |Number |Number of votes the book has  |
+|description |String |Description about the book    |
 
 
 #### Default Books:  
@@ -83,7 +83,7 @@ Results:
 * No upper limit.
 * By default limited to `10` books.
 * Returns HTTP status `200` on success.
-* May return HTTP status `404` if index is out of bounds.
+* May return HTTP status `400` if index is out of bounds.
 
 
 Results:
@@ -118,6 +118,7 @@ Results:
 * By default set to `false`.
 * By default starts at index `0`.
 * Returns HTTP status `200` on success.
+* Returns HTTP status `400` if value is not identified;
 
 Results:
 ```
@@ -169,6 +170,140 @@ Results:
   }
 }
 ```
+
+`PUT localhost:3000/api/books/761183272`
+
+* Updates the data of the specified book.
+* Returns HTTP status `204` if successfully found and modified.
+* Returns HTTP status `406` if body data is not valid.
+* Returns HTTP status `400` if the respective book is not found.
+
+PUT body: Editing the description in this case
+```
+{
+  "book": {
+    "isbn": "761183272",
+    "image": "http://ecx.images-amazon.com/images/I/61Y5cOdHJbL.jpg",
+    "title": "Mom's Family Wall Calendar 2016",
+    "author": "Sandra Boynton",
+    "genre": {
+      "id": "3",
+      "name": "Calendars"
+    },
+    "votes": 1,
+    "description": "edited"
+  }
+}
+```
+Results: `HTTP status 204` and updates the specified book.
+
+#### OrderBy
+
+`GET localhost:3000/api/books?orderBy=-votes`
+
+* Accepted values are `votes`, `title`.
+* By default orders by ascending order.
+* Use `-` in-front of the value to order by descending.
+* can be combined with other queries.
+* Returns HTTP status `200` on success.
+* Returns HTTP status `400` if value is not identified.
+
+Results:
+
+```
+{
+  "noOfBooks": 10,
+  "books": [
+    {
+      "isbn": "123919274",
+      "image": "http://ecx.images-amazon.com/images/I/511lC-TxB8L.jpg",
+      "title": "Intermolecular and Surface Forces, Third Edition: Revised Third Edition",
+      "author": "Jacob N. Israelachvili",
+      "genre": {
+        "id": "10",
+        "name": "Engineering & Transportation"
+      },
+      "votes": 1000,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    .
+    .
+    .
+  ]
+}
+```
+
+#### Votes
+
+`PUT localhost:3000/api/books/761183272/votes`
+
+* Updates the votes of the specific book.
+* Returns HTTP status `204` if successfully found and modified.
+* Returns HTTP status `406` if body data is not valid.
+* Returns HTTP status `400` if the respective book is not found.
+
+PUT body: modifying votes in this case
+
+```
+{
+  "book": {
+    "isbn": "761183272",
+    "votes": 2,
+  }
+}
+```
+
+Results: `HTTP status 204` and updates the votes of the specified book.
+
+#### Search
+
+`GET localhost:3000/api/books/search?q[keywords]=The+Walking+Dead&q[genre]=comics&q[author]=robert`
+
+* `q[keywords]` is used for searching using keywords.
+* `q[isbn]` is used to lookup the isbn of the books.
+* `q[title]` is used to lookup in the title of the book.
+* `q[author]` is used to lookup in the author of the book.
+* `q[genre]` is used to lookup in the genres.
+* can be combined with other query parameters for paging.
+* by default returns 10 results.
+
+Results:
+
+```
+{
+  "noOfBooks": 10,
+  "books": [
+    {
+      "isbn": "1632154560",
+      "image": "http://ecx.images-amazon.com/images/I/516HHkU2bKL.jpg",
+      "title": "The Walking Dead Compendium Volume 3 (Walking Dead Compendium Tp)",
+      "author": "Robert Kirkman",
+      "genre": {
+        "id": "5",
+        "name": "Comics & Graphic Novels"
+      },
+      "votes": 0,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    {
+      "isbn": "1607060760",
+      "image": "http://ecx.images-amazon.com/images/I/51m-0BhIqDL.jpg",
+      "title": "The Walking Dead:  Compendium One",
+      "author": "Robert Kirkman",
+      "genre": {
+        "id": "5",
+        "name": "Comics & Graphic Novels"
+      },
+      "votes": 0,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    .
+    .
+    .
+  ]
+}
+```
+
 
 ##### Examples
 
@@ -226,10 +361,10 @@ StartIndex and All:
 
 ## Genres
 
-|Field        |Description           |
-|-------------|----------------------|
-|id           |Id of the genre       |
-|name         |Name of the genre     |
+|Field        |Type   |Description           |
+|-------------|-------|----------------------|
+|id           |String |Id of the genre       |
+|name         |String |Name of the genre     |
 
 #### Default genres
 
@@ -293,7 +428,7 @@ Results:
 * No upper limit.
 * By default limited to `10` genres.
 * Returns HTTP status `200` on success.
-* May return HTTP status `404` if index is out of bounds.
+* May return HTTP status `400` if index is out of bounds.
 
 Results:
 ```
@@ -373,10 +508,11 @@ Results:
 
 * Should contain the id of genres.
 * Can be combined with other queries.
+* Can use `orderBy` as stated for Books.
 * By default limited to `10` books.
 * By default starts at index `0`.
 * Returns HTTP status `200` on success.
-* May Return HTTP status `404` error if no matching id is found.
+* May Return HTTP status `400` error if no matching id is found.
 
 Results:
 ```
@@ -501,5 +637,65 @@ Books within genre combined with other queries:
     .
     .
   ]
+}
+```
+
+`GET localhost:3000/api/genres/8/books?orderBy=-votes&startIndex=900&all=true`
+
+```
+{
+  "noOfBooks": 9034,
+  "books": [
+    {
+      "isbn": "1582380600",
+      "image": "http://ecx.images-amazon.com/images/I/41dLdqHnhNL.jpg",
+      "title": "Sacagawea Dollar Folder",
+      "author": "Whitman",
+      "genre": {
+        "id": "8",
+        "name": "Crafts Hobbies & Home"
+      },
+      "votes": 827,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    {
+      "isbn": "794827845",
+      "image": "http://ecx.images-amazon.com/images/I/51y7mYYzeZL.jpg",
+      "title": "Statehood Quarters Map",
+      "author": "",
+      "genre": {
+        "id": "8",
+        "name": "Crafts Hobbies & Home"
+      },
+      "votes": 574,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    .
+    .
+    .
+  ]
+}
+```
+
+## Users
+
+|Field   |Type    |Description       |
+|--------|--------|------------------|
+|id      | Number | Unique id of user|
+
+#### Login
+
+`POST localhost:3000/users`
+
+* Used to mimic the login.
+* Returns the user object sequentially.
+
+Results:
+
+```
+{
+  "user": {
+    "id": 1
+  }
 }
 ```
