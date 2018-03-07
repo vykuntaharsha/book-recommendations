@@ -12,7 +12,11 @@ module.exports = (req, res) =>{
     const index = data.books.findIndex( book => book.isbn === id );
 
     if(index >= 0 && isValidBook(requestedBook)){
-        data.books[index] = requestedBook;
+        const book = data.books[index];
+        book.title = requestedBook.title;
+        book.author = requestedBook.author;
+        book.genre = requestedBook.genre;
+        book.description = requestedBook.description;
         res.sendStatus(204);
     }else if(index >=0 && !isValidBook(requestedBook)) {
         res.sendStatus(406);
