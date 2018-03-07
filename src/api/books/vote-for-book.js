@@ -14,12 +14,13 @@ module.exports = (req, res) =>{
     if( index >= 0 && isValidUser(user) ){
         const indexOfUser = data.books[index].votedUsers.findIndex( u => u.id === user.id);
 
+        const book = data.books[index];
         if( indexOfUser >= 0){
-            data.books[index].votes -= 1;
-            data.books[index].votedUsers.splice( indexOfUser, 1);
+            book.votes -= 1;
+            book.votedUsers.splice( indexOfUser, 1);
         }else {
-            data.books[index].votes += 1;
-            data.books[index].votedUsers.push( user );
+            book.votes += 1;
+            book.votedUsers.push( user );
         }
 
         res.sendStatus(204);

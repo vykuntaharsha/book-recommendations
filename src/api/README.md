@@ -143,7 +143,52 @@ Results:
   ]
 }
 ```
+#### StartsWith
 
+`GET localhost:3000/api/books?startsWith[author]=a&startsWith[title]=c`
+
+* Accepted keys are `author` and `title`.
+* Accepted values are `a-z` case insensitive.
+* Can be combined with other queries.
+* By default returns `10` results.
+
+Results:
+```
+{
+  "noOfBooks": 10,
+  "books": [
+    {
+      "isbn": "1629051608",
+      "image": "http://ecx.images-amazon.com/images/I/61KuNN4uqBL.jpg",
+      "title": "Charles Wysocki - Americana Wall Calendar (2016)",
+      "author": "AMCAL",
+      "genre": {
+        "id": "3",
+        "name": "Calendars"
+      },
+      "votes": 0,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "votedUsers": []
+    },
+    {
+      "isbn": "1449465056",
+      "image": "http://ecx.images-amazon.com/images/I/51E1ScfYyHL.jpg",
+      "title": "Cats 2016 Mini Day-to-Day Calendar",
+      "author": "Andrews McMeel Publishing LLC",
+      "genre": {
+        "id": "3",
+        "name": "Calendars"
+      },
+      "votes": 0,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "votedUsers": []
+    },
+    .
+    .
+    .
+  ]
+}
+```
 #### Isbn
 
 `GET localhost:3000/api/books/761183272`
