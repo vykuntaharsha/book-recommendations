@@ -14,13 +14,14 @@ module.exports = (req, res, next) =>{
     }
 
     if( keyWords ){
-        const regex = new RegExp(keyWords.join('|'));
+        const regex = new RegExp(keyWords.join('|'), 'i');
 
         req.books = req.books.filter( book => {
             if( book.title.match(regex) ||
                 book.author.match(regex) ||
                 book.genre.name.match(regex) ||
-                book.description.match(regex)){
+                book.description.match(regex) ||
+                book.isbn.match(regex)){
                     return book;
                 }
         });

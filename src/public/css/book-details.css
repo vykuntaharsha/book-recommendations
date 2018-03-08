@@ -140,3 +140,16 @@ input.title{
 .hide{
     display: none;
 }
+
+.voted-users{
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    text-align: center;
+}
+.voted-users > li{
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+}
