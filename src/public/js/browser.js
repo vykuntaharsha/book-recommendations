@@ -4,15 +4,15 @@ const getUrl = () => {                      // Providing url for fetching. Using
     return '../../api/books?maxResults=40';
 };
 
-const callGetJsonService = (url) => {       
+const callGetJsonService = (url) => {
     return fetch(url)
     .then(r => {
         return r.json();
     });
 };
 
-const performGetRequest = () => {           // Using with the function before this. Transferring fetched data to local variable. And establishing init render funciton 
-    const url = getUrl();
+const performGetRequest = ( urlInput ) => {           // Using with the function before this. Transferring fetched data to local variable. And establishing init render funciton
+    const url = urlInput || getUrl();
     callGetJsonService(url)
     .then(json => {
         //processJson(json);
@@ -77,7 +77,7 @@ function voteButton(event) {                // Just for Vote. No need more modif
 function bookImageButton(event) {           // Just for Vote. Modifying after page number funtion is finished
     let posImage = event.target.classList[1].substr(9);
     let book = bookJson.books[posImage];
-    renderBookDetail(book);
+    renderBookDetails(`api/books/${book.isbn}`);
 }
 
 function renderBookDetail(book) {           // No need more modifying

@@ -131,3 +131,15 @@ header{
     position: absolute;
     margin-top: 100px;
 }
+
+.user-welcome{
+    position: absolute;
+    top: 0px;
+    width: inherit;
+    padding: 10px;
+    font-size: 20px;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    background-color: lightgreen;
+    color: snow;
+    text-align: center;
+}

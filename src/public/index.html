@@ -24,6 +24,7 @@
       <div>
         <input id="corner-search" name="search" placeholder="search"/>
       </div>
+      <span class="user-welcome"></span>
     </header>
 
 <main id="main-page" class="slideshow-container">
@@ -47,10 +48,10 @@
     </div>
 
     <div class="search-container">
-        <form class="search-form" action="index.html">
+        <div class="search-form">
           <input class="search-input" type="text" placeholder="Search..." name="search"><!-- search
-          icon --><button type="submit"><img src="images/search.png"></button>
-        </form>
+          icon --><button type="button"><img src="images/search.png"></button>
+      </div>
       </div>
 
 </main>
@@ -230,7 +231,7 @@
     </div>
 </section>
 <section id="book-details">
-    <div class="book-details">
+    <div class="book-details hide">
         <div class="edit">
             <ul class="edit-book">
                 <li class="edit-button">Edit</li>
@@ -242,10 +243,9 @@
             <img class="book-image-details" src="" alt="image">
             <div class="vote">
                 <img class="vote-button" src="images/vote.svg">
-                <img class="voted-button hide"
-                src="images/voted.svg">
                 <a class="book-votes-details"></a>
             </div>
+            <span>Voted users: </span><ul class="voted-users"></ul>
         </div><!-- book description along with titles
      --><div class="book-contents">
             <h1 class="book-title-details title"></h1>
