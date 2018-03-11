@@ -14,16 +14,13 @@
       <nav class="nav-text">
         <a class="nav-logo" href=""><img src="images/logo.png"></a>
         <ul class="main-menu">
-          <li><a href="#genre">Genre</a></li>
-          <li><a href="#author">Author</a></li>
-          <li><a href="#title">Title</a></li>
-          <li><a href="#popular">Popular</a></li>
+          <li><a id="nav-genre" href="#sidebar">Genre</a></li>
+          <li><a id="nav-author" href="#sidebar">Author</a></li>
+          <li><a id="nav-title" href="#sidebar">Title</a></li>
+          <li><a id="nav-popular" href="#sidebar">Popular</a></li>
+          <input id="corner-search" name="search" placeholder="Search..."/><img id="search-icon" src="images/search.png">
         </ul>
       </nav>
-      <img id="search-icon" src="images/search-icon.png">
-      <div>
-        <input id="corner-search" name="search" placeholder="search"/>
-      </div>
       <span class="user-welcome"></span>
     </header>
 
@@ -56,99 +53,9 @@
 
 </main>
 
-<section id="genre">
-    <div id="sidebar">
+<section id="sidebar">
+    <div>
         <ul class="side-menu">
-            <li>
-                <div class="menu-item">Romance</div>
-                <ul class="sub-side-menu">
-                    <li><a href="#book-details">Book Name1</a></li>
-                    <li><a href="#">Book Name2</a></li>
-                    <li><a href="#">Book Name3</a></li>
-                    <li><a href="#">Book Name4</a></li>
-                    <li><a href="#">Book Name5</a></li>
-                    <li><a href="#">Book Name6</a></li>
-                    <li><a href="#">Book Name7</a></li>
-                    <li><a href="#">Book Name8</a></li>
-                    <li><a href="#">Book Name9</a></li>
-                    <li><a href="#">Book Name10</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="menu-item">Science fiction</div>
-                <ul class="sub-side-menu">
-                    <li><a href="#">Book Name1</a></li>
-                    <li><a href="#">Book Name2</a></li>
-                    <li><a href="#">Book Name3</a></li>
-                    <li><a href="#">Book Name4</a></li>
-                    <li><a href="#">Book Name5</a></li>
-                    <li><a href="#">Book Name6</a></li>
-                    <li><a href="#">Book Name7</a></li>
-                    <li><a href="#">Book Name8</a></li>
-                    <li><a href="#">Book Name9</a></li>
-                    <li><a href="#">Book Name10</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="menu-item">Children's</div>
-                <ul class="sub-side-menu">
-                    <li><a href="#">Book Name1</a></li>
-                    <li><a href="#">Book Name2</a></li>
-                    <li><a href="#">Book Name3</a></li>
-                    <li><a href="#">Book Name4</a></li>
-                    <li><a href="#">Book Name5</a></li>
-                    <li><a href="#">Book Name6</a></li>
-                    <li><a href="#">Book Name7</a></li>
-                    <li><a href="#">Book Name8</a></li>
-                    <li><a href="#">Book Name9</a></li>
-                    <li><a href="#">Book Name10</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="menu-item">History</div>
-                <ul class="sub-side-menu">
-                    <li><a href="#">Book Name1</a></li>
-                    <li><a href="#">Book Name2</a></li>
-                    <li><a href="#">Book Name3</a></li>
-                    <li><a href="#">Book Name4</a></li>
-                    <li><a href="#">Book Name5</a></li>
-                    <li><a href="#">Book Name6</a></li>
-                    <li><a href="#">Book Name7</a></li>
-                    <li><a href="#">Book Name8</a></li>
-                    <li><a href="#">Book Name9</a></li>
-                    <li><a href="#">Book Name10</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="menu-item">Fiction</div>
-                <ul class="sub-side-menu">
-                    <li><a href="#">Book Name1</a></li>
-                    <li><a href="#">Book Name2</a></li>
-                    <li><a href="#">Book Name3</a></li>
-                    <li><a href="#">Book Name4</a></li>
-                    <li><a href="#">Book Name5</a></li>
-                    <li><a href="#">Book Name6</a></li>
-                    <li><a href="#">Book Name7</a></li>
-                    <li><a href="#">Book Name8</a></li>
-                    <li><a href="#">Book Name9</a></li>
-                    <li><a href="#">Book Name10</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="menu-item">Education</div>
-                <ul class="sub-side-menu">
-                    <li><a href="#">Book Name1</a></li>
-                    <li><a href="#">Book Name2</a></li>
-                    <li><a href="#">Book Name3</a></li>
-                    <li><a href="#">Book Name4</a></li>
-                    <li><a href="#">Book Name5</a></li>
-                    <li><a href="#">Book Name6</a></li>
-                    <li><a href="#">Book Name7</a></li>
-                    <li><a href="#">Book Name8</a></li>
-                    <li><a href="#">Book Name9</a></li>
-                    <li><a href="#">Book Name10</a></li>
-                </ul>
-            </li>
         </ul>
     </div>
 </section>
@@ -227,6 +134,18 @@
                     <button class="button-like">vote</button><p class="book-vote book-vote-7"></p>
                 </div>
             </li>
+        </ul>
+    </div>
+    <div class="book-list-pages">
+        <ul class="pages">
+            <li> <a href="#booklist"> << </a> </li>
+            <li> <a href="#booklist"> 1</a> </li>
+            <li> <a href="#booklist"> 2</a> </li>
+            <li> <a href="#booklist"> 3</a> </li>
+            <li> <a href="#booklist"> 4</a> </li>
+            <li> <a href="#booklist"> 5</a> </li>
+            <li> <a href="#booklist"> 6</a> </li>
+            <li> <a href="#booklist"> >> </a> </li>
         </ul>
     </div>
 </section>
