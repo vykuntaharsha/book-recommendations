@@ -37,6 +37,7 @@ header{
     margin-right: 2%;
 }
 .main-menu li{
+    padding: 10px;
     display: inline-block;
     vertical-align: top;
     text-align: center;
@@ -60,25 +61,27 @@ header{
 }
 
 #search-icon{
-    display:none;
-    width: 20px;
-    margin-right:1%;
+    display:inline;
+    width: 24px;
+    position: relative;
+    right: 30px;
+    cursor: pointer;
+    vertical-align: middle;
     /*display: inline-block;*/
-    vertical-align: bottom;
-    padding: 2%;
 }
 
 #corner-search{
     display: none;
     width: 250px;
-    height: 30px;
     font-size: 16px;
-    text-align: center;
+    padding: 10px;
 }
 
 /*-------below are side menu styles-------------------------*/
 
 .side-menu {
+    height: 500px;
+    overflow-y: scroll;
     width: 200px;
     /*background: #d5d5d5;*/
     border-radius: 4px;
@@ -127,9 +130,9 @@ header{
 
 /*-----genre part-----*/
 
-#genre {
+#sidebar {
     position: absolute;
-    margin-top: 100px;
+    padding-top: 100px;
 }
 
 .user-welcome{

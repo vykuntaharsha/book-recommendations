@@ -42,7 +42,7 @@ function showSlides() {
     }
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 4000);
+    setTimeout(showSlides, 2000);
 }
 
 function addListenersToSearchBar() {
@@ -59,10 +59,10 @@ function checkKeyAndPerformSearch( event ) {
 
 function searchByKeywords(){
     let keywords = document.querySelector('.search-input').value;
+    document.getElementById('booklist').scrollIntoView();
 
     if(keywords){
         keywords = keywords.replace(/\s/g, '+');
-        console.log(keywords);
         performGetRequest(`api/books/search?q[keywords]=${keywords}`);
     }
 }

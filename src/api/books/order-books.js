@@ -18,7 +18,7 @@ function sortData( data, parameter, descending) {
 }
 
 module.exports = (req, res, next) => {
-    
+
     const orderBy = constants.PARAMETERS_OF_ORDER_BY.find( parameter => parameter === req.query.orderBy);
 
     if( orderBy ){
@@ -31,7 +31,9 @@ module.exports = (req, res, next) => {
 
     if(!orderBy && req.query.orderBy){
         res.sendStatus(400);
+    }else {
+        next();
     }
 
-    next();
+
 };

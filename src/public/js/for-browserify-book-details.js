@@ -23,17 +23,6 @@ const renderBookDetails = (url) => {
         renderBookDescription();
     }
 
-    function postVoteDataToServer(url, data) {
-        return fetch(url , {
-            body: JSON.stringify(data),
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'content-type': 'application/json'
-            },
-        });
-    }
-
     function renderToEdit() {
         // rendering the section to enable editing
         document.querySelector('.edit-button').classList.add('hide');
@@ -174,10 +163,23 @@ const renderBookDetails = (url) => {
             .then(data => data.book );
     }
 
-    function getVotedUsers( url ) {
-        return fetch(url)
-            .then(res => res.json())
-            .then(data => data.users );
-    }
 
+
+}
+
+function getVotedUsers( url ) {
+    return fetch(url)
+        .then(res => res.json())
+        .then(data => data.users );
+}
+
+function postVoteDataToServer(url, data) {
+    return fetch(url , {
+        body: JSON.stringify(data),
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'content-type': 'application/json'
+        },
+    });
 }
