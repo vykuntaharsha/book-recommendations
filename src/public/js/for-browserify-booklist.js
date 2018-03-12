@@ -207,8 +207,12 @@ function renderDetails( book ) {
 }
 
 const orderOptions = document.querySelector('.order-select');
+const orderButton = document.querySelector('.order-button');
 
-orderOptions.addEventListener('change', () => {
+orderButton.addEventListener('click', orderBooks);
+orderOptions.addEventListener('change', orderBooks);
+
+function orderBooks() {
     const origin = new URL(document.location).origin;
     const url = new URL(bookListUrl, origin);
 
@@ -220,7 +224,7 @@ orderOptions.addEventListener('change', () => {
         url.searchParams.set('orderBy', '-votes' )
         performGetRequest(url);
     }
-});
+}
 
 function updateBookView( bookToUpdate ) {
     const id = bookJson.books.findIndex( book => book.isbn === bookToUpdate.isbn );
