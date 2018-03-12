@@ -2,6 +2,7 @@
 	display: inline-block;
 	margin-left: 250px;
 	padding-top: 100px;
+	width: 80%;
 }
 
 #booklist.hide{
@@ -101,4 +102,12 @@
 
 .disabled a{
 	cursor: default;
+}
+
+.order-button{
+	cursor: pointer;
+}
+
+.order-select{
+	cursor: pointer;
 }
