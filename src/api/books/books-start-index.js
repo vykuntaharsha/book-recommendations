@@ -9,6 +9,7 @@ module.exports = (req, res, next) => {
      if(req.query.all === 'true'){
          res.status(200).json({
              noOfBooks : req.books.length,
+             maxAvailableBooks : req.books.length,
              books : req.books
          });
      }else if (req.query.all) {
