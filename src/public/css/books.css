@@ -84,10 +84,21 @@
     margin: 0 4px;
 }
 
-.pages >li:hover{
+.pages .page{
+	cursor: pointer;
+}
+.pages .page:hover{
 	background-color: lavender;
 }
 
-.pages > li:active{
-	background-color: #9696d2;
+.page.active{
+	background-color: lavender;
+}
+
+.pages .disabled{
+	background-color: lightgrey;
+}
+
+.disabled a{
+	cursor: default;
 }

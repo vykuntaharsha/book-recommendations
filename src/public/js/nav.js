@@ -72,6 +72,9 @@
             });
         }
 
+
+    }
+    function addListenersToSubMenuBooks() {
         const subMenuBookList = document.querySelectorAll(".sub-side-menu >li");
 
         subMenuBookList.forEach( li => {
@@ -90,6 +93,8 @@
                 performGetRequest(`api/genres/${genreId}/books`);
             });
         });
+
+        addListenersToSubMenuBooks();
     }
 
     function addListenersToFilters( filter ) {
@@ -98,6 +103,24 @@
             menu.addEventListener('click', () =>{
                 const alphabet = menu.getAttribute('data-id');
                 performGetRequest(`api/books?startsWith[${filter}]=${alphabet}`);
+            });
+        });
+
+        if( filter === 'title') {
+            addListenersToSubMenuBooks();
+        }else {
+            addListenersToSubMenuAuthors();
+        }
+
+    }
+
+    function addListenersToSubMenuAuthors() {
+        const subMenuBookList = document.querySelectorAll(".sub-side-menu >li");
+
+        subMenuBookList.forEach( li => {
+            li.addEventListener('click', () =>{
+                const author = li.getAttribute('data-id');
+                performGetRequest(`api/books/search?q[author]=${author}`);
             });
         });
     }
@@ -162,7 +185,7 @@
 
         alphabets.forEach( alphabet => {
             fetchBooksByFiltering( filter, alphabet )
-            .then( books => setSubSideMenu(books) )
+            .then( books => (filter ==='title') ? setSubSideMenu(books) : setSubSideMenuForAuthors(books) )
             .then( subMenu => {
                 sideMenu.innerHTML += `<li><div data-id=${alphabet} class="menu-item">${alphabet}</div><ul class="sub-side-menu">${subMenu}</ul></li>`;
             })
@@ -170,6 +193,24 @@
                 addListenersToMenuList();
                 addListenersToFilters( filter );
             });
+        });
+    }
+
+    function setSubSideMenuForAuthors( books ) {
+        const authors = new Set();
+
+        books.forEach( book => {
+            authors.add(book.author);
+        });
+
+        const list = [];
+        authors.forEach( author => {
+            const listItem = `<li data-id=${author}><a href=#booklist> ${author} </a></li>`;
+            list.push(listItem);
+        });
+
+        return new Promise( resolve => {
+            resolve(list.join(''));
         });
     }
 

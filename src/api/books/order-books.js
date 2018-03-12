@@ -1,7 +1,7 @@
 const constants = require('../constants');
 
 function sortData( data, parameter, descending) {
-
+    data = data.slice(0);
     data.sort((a,b) => {
         if(a[parameter] > b[parameter]){
             return 1;

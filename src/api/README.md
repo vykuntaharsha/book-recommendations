@@ -23,6 +23,7 @@ Results:
 ```
 {
   "noOfBooks": 10,
+  "maxAvailableBooks" : 24563,
   "books": [
     {
       "isbn": "761183272",
@@ -55,6 +56,7 @@ Results:
 ```
 {
   "noOfBooks": 40,
+  "maxAvailableBooks": 24563,
   "books": [
     {
       "isbn": "761183272",
@@ -90,6 +92,7 @@ Results:
 ```
 {
   "noOfBooks": 10,
+  "maxAvailableBooks": 24563,
   "books": [
     {
       "isbn": "761183558",
@@ -124,6 +127,7 @@ Results:
 ```
 {
   "noOfBooks": 207572,
+  "maxAvailableBooks": 207572,
   "books": [
     {
       "isbn": "761183272",
@@ -156,6 +160,7 @@ Results:
 ```
 {
   "noOfBooks": 10,
+  "maxAvailableBooks": 24563,
   "books": [
     {
       "isbn": "1629051608",
@@ -259,6 +264,7 @@ Results:
 ```
 {
   "noOfBooks": 10,
+  "maxAvailableBooks": 24563,
   "books": [
     {
       "isbn": "123919274",
@@ -341,6 +347,7 @@ Results:
 ```
 {
   "noOfBooks": 10,
+  "maxAvailableBooks": 2345,
   "books": [
     {
       "isbn": "1632154560",
@@ -382,6 +389,7 @@ StartIndex and MaxResults:
 ```
 {
   "noOfBooks": 20,
+  "maxAvailableBooks": 3456,
   "books": [
     {
       "isbn": "761183558",
@@ -408,6 +416,7 @@ StartIndex and All:
 ```
 {
   "noOfBooks": 207532,
+  "maxAvailableBooks": 207532,
   "books": [
     {
       "isbn": "1441317147",
@@ -587,6 +596,7 @@ Results:
 ```
 {
   "noOfBooks": 10,
+  "maxAvailableBooks": 23452,
   "books": [
     {
       "isbn": "1476746583",
@@ -664,6 +674,7 @@ Books within genre combined with other queries:
 ```
 {
   "noOfBooks": 20,
+  "maxAvailableBooks": 23454,
   "books": [
     {
       "isbn": "1627227253",
@@ -689,6 +700,7 @@ Books within genre combined with other queries:
 ```
 {
   "noOfBooks": 9034,
+  "maxAvailableBooks": 9034,
   "books": [
     {
       "isbn": "1582380600",
@@ -714,6 +726,7 @@ Books within genre combined with other queries:
 ```
 {
   "noOfBooks": 9034,
+  "maxAvailableBooks": 9034,
   "books": [
     {
       "isbn": "1582380600",

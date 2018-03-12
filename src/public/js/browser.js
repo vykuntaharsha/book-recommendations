@@ -1,5 +1,9 @@
 let bookJson = {};
 let bookListUrl = null;
+let maxPages = 1;
+const noOfBooksPerPage = 8;
+const pages = document.querySelector('.pages');
+
 const getUrl = () => {                      // Providing url for fetching. Using this function to fetch data from server
     return 'api/books?maxResults=40';
 };
@@ -13,12 +17,14 @@ const callGetJsonService = (url) => {
 
 const performGetRequest = ( urlInput ) => {           // Using with the function before this. Transferring fetched data to local variable. And establishing init render funciton
     const url = urlInput || getUrl();
+
     bookListUrl = url;
     callGetJsonService(url)
     .then(json => {
         //processJson(json);
+        maxPages = Math.ceil(json.maxAvailableBooks / noOfBooksPerPage);
         bookJson = json;
-        renderbookList();
+        renderPage();
     });
 };
 
@@ -38,6 +44,96 @@ function processJson(json) {
 }
 */
 
+function renderPageButtons( page ) {
+    if( !page ) page = 1;
+    if( page < 1) page = 1;
+    if( page > maxPages) page = maxPages;
+
+    const rangeStart = (page-1 > 3) ? page-2 : 2;
+    const rangeEnd = (maxPages-page > 3) ? page+2 : maxPages-1;
+
+    pages.innerHTML = '<li class="previous-page"><a href="#booklist"> << </li>\n';
+    pages.innerHTML += '<li class="page" pageNo="1"><a href="#booklist"> 1</a></li>\n';
+    if( rangeStart != 2) pages.innerHTML += '...\n';
+
+    for (let i = rangeStart; i <= rangeEnd; i++) {
+        pages.innerHTML += `<li class="page" pageNo="${i}"><a href="#booklist"> ${i}</a></li>\n`;
+    }
+
+    if( rangeEnd != maxPages-1 ) pages.innerHTML += '...\n';
+    pages.innerHTML += `<li class="page" pageNo="${maxPages}"><a href="#booklist"> ${maxPages}</a></li>\n`;
+    pages.innerHTML += '<li class="next-page"><a href="#booklist"> >> </li>\n';
+
+    let activePage = null;
+    const pageButtons = document.querySelectorAll('.page');
+    pageButtons.forEach( p => {
+        if(p.getAttribute('pageNo') == page) activePage = p;
+    });
+
+    activePage.classList.add('active');
+    addListenersToPageButtons();
+}
+
+function addListenersToPageButtons() {
+    const previousButton = document.querySelector('.previous-page');
+    const pageButtons = document.querySelectorAll('.page');
+    const nextButton = document.querySelector('.next-page');
+
+    const currentPageNo = parseInt( document.querySelector('.page.active').getAttribute('pageNo') );
+
+    if(currentPageNo === 1){
+        previousButton.classList.add('disabled');
+        nextButton.classList.remove('disabled');
+    }
+    else if(currentPageNo === maxPages){
+        previousButton.classList.remove('disabled');
+        nextButton.classList.add('disabled');
+    }else {
+        previousButton.classList.remove('disabled');
+        nextButton.classList.remove('disabled');
+    }
+
+    previousButton.addEventListener('click', ()=>{
+        if(currentPageNo != 1) renderPage( currentPageNo - 1);
+    });
+
+    nextButton.addEventListener('click', ()=>{
+        if(currentPageNo != maxPages) renderPage( currentPageNo + 1);
+    });
+
+    pageButtons.forEach( button => {
+        const pageNo = parseInt(button.getAttribute('pageNo'));
+        button.addEventListener('click', ()=>{
+            renderPage( pageNo );
+        });
+    });
+}
+
+function loadPageData( url , page) {
+    callGetJsonService( url )
+    .then(json => {
+        bookJson = json;
+        renderPageButtons( page );
+        renderbookList();
+    });
+}
+
+function renderPage( page ) {
+    if( !page ) page = 1;
+    if( page < 1) page = 1;
+    if( page > maxPages) page = maxPages;
+
+    const startIndex = (page - 1) * noOfBooksPerPage;
+
+    const origin = new URL(document.location).origin;
+    const url = new URL(bookListUrl, origin);
+
+    url.searchParams.set('startIndex', startIndex);
+    url.searchParams.set('maxResults', noOfBooksPerPage);
+
+    loadPageData( url, page );
+}
+
 function renderbookList() {                 // Render function for the book list. Modifying this function after sort function is finished
     for (let i = 0; i < 8; i++) {
         renderSingleBook(i);
@@ -45,6 +141,7 @@ function renderbookList() {                 // Render function for the book list
 }
 
 function renderSingleBook(id) {             // Rending single book. No more need modifying.
+    if( !bookJson.books[id] ) return;
     document.querySelector('.book-img-' + id).src = bookJson.books[id].image;
     document.querySelector('.book-title-' + id).innerHTML = bookJson.books[id].title.length < 50 ? bookJson.books[id].title : bookJson.books[id].title.substr(0,47).trim()+'...';
     bookJson.books[id].author === '' ? document.querySelector('.book-author-' + id).innerHTML = 'unknown' : document.querySelector('.book-author-' + id).innerHTML = bookJson.books[id].author;
