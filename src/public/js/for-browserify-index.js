@@ -1,3 +1,4 @@
+const performGetRequest = require('./for-browserify-booklist');
 let slideIndex=0;
 showSlides();
 addListenersToSearchBar();
@@ -66,3 +67,5 @@ function searchByKeywords(){
         performGetRequest(`api/books/search?q[keywords]=${keywords}`);
     }
 }
+
+module.exports = user;

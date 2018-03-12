@@ -3,6 +3,7 @@ let bookListUrl = null;
 let maxPages = 1;
 const noOfBooksPerPage = 8;
 const pages = document.querySelector('.pages');
+const booklist = document.querySelector('.books');
 
 const getUrl = () => {                      // Providing url for fetching. Using this function to fetch data from server
     return 'api/books?maxResults=40';
@@ -15,7 +16,7 @@ const callGetJsonService = (url) => {
     });
 };
 
-const performGetRequest = ( urlInput ) => {           // Using with the function before this. Transferring fetched data to local variable. And establishing init render funciton
+const performGetRequest = ( urlInput, page ) => {           // Using with the function before this. Transferring fetched data to local variable. And establishing init render funciton
     const url = urlInput || getUrl();
 
     bookListUrl = url;
@@ -24,25 +25,9 @@ const performGetRequest = ( urlInput ) => {           // Using with the function
         //processJson(json);
         maxPages = Math.ceil(json.maxAvailableBooks / noOfBooksPerPage);
         bookJson = json;
-        renderPage();
+        renderPage( page );
     });
 };
-
-/*
-function processJson(json) {
-    for (let i = 0; i < json.books.length; i++) {
-        let book = {};
-        book.isbn = json.books[i].isbn;
-        book.image = json.books[i].image;
-        book.title = json.books[i].title;
-        book.author = json.books[i].author;
-        book.genre = json.books[i].genre;
-        book.votes = json.books[i].votes;
-        book.description = json.books[i].description;
-        books.push(book);
-    }
-}
-*/
 
 function renderPageButtons( page ) {
     if( !page ) page = 1;
@@ -123,6 +108,7 @@ function renderPage( page ) {
     if( page < 1) page = 1;
     if( page > maxPages) page = maxPages;
 
+    currentPage = page;
     const startIndex = (page - 1) * noOfBooksPerPage;
 
     const origin = new URL(document.location).origin;
@@ -135,28 +121,45 @@ function renderPage( page ) {
 }
 
 function renderbookList() {                 // Render function for the book list. Modifying this function after sort function is finished
-    for (let i = 0; i < 8; i++) {
-        renderSingleBook(i);
+    booklist.innerHTML = '';
+    for (let i = 0; i < noOfBooksPerPage; i++) {
+        booklist.innerHTML += renderSingleBook(i);
+
     }
+
+    addListenersToComponents();
 }
 
 function renderSingleBook(id) {             // Rending single book. No more need modifying.
-    if( !bookJson.books[id] ) return;
-    document.querySelector('.book-img-' + id).src = bookJson.books[id].image;
-    document.querySelector('.book-title-' + id).innerHTML = bookJson.books[id].title.length < 50 ? bookJson.books[id].title : bookJson.books[id].title.substr(0,47).trim()+'...';
-    bookJson.books[id].author === '' ? document.querySelector('.book-author-' + id).innerHTML = 'unknown' : document.querySelector('.book-author-' + id).innerHTML = bookJson.books[id].author;
-    document.querySelector('.book-vote-' + id).innerHTML = bookJson.books[id].votes;
-    const voteButton = document.querySelector('#book-'+id + ' button');
-    setVoteButton( bookJson.books[id] , voteButton );
+    if( !bookJson.books[id] ) return '';
+
+    const book = bookJson.books[id];
+    const bookHtml = getBookHtml(book, id);
+    const listItem = `<li id="book-${id}" class="book" data-id="${book.isbn}">${bookHtml}</li>`
+    return listItem;
 }
 
-function setVoteButton(book, button ) {
+function getBookHtml( book, id ) {
+    const title = book.title.length < 50 ? book.title : book.title.substr(0,47).trim()+'...';
+    const author = book.author ? book.author : "unknown";
+    const button = setVoteButton(book);
+
+    const bookHtml = `<a href="#book-details"><img class="book-img book-img-${id}" src="${book.image}"></a>
+    <p class="book-title book-title-${id}">${title}</p>
+    <p class="book-author book-author-${id}">${author}</p>
+    <div class="like">
+        <button class="button-like">${button}</button><p class="book-vote book-vote-${id}">${book.votes}</p>
+    </div>`
+
+    return bookHtml;
+}
+function setVoteButton(book) {
+    const user = require('./for-browserify-index');
     const foundUser = book.votedUsers.find( u => u.id === user.id );
     if( foundUser ){
-        button.innerHTML = 'cancel';
-    }else {
-        button.innerHTML = 'vote';
+        return 'cancel';
     }
+    return 'vote';
 }
 
 function addListenersToComponents() {       // Add listeners to components. Modifying for more interreacting function.
@@ -182,23 +185,25 @@ function voteButton(event) {                // Just for Vote. No need more modif
         event.target.innerHTML = 'vote';
     }
     const book = bookJson.books[posVote];
+    const postVoteDataToServer = require('./for-browserify-book-details').postVoteDataToServer;
+    const user = require('./for-browserify-index');
     postVoteDataToServer(`api/books/${book.isbn}/vote`, { user : user });
+
+    const bookDetails = document.querySelector('.book-details').getAttribute('data-id')
+    if( bookDetails === book.isbn ) renderDetails( book );
 }
 
 function bookImageButton(event) {           // Just for Vote. Modifying after page number funtion is finished
+
     let posImage = event.target.classList[1].substr(9);
     let book = bookJson.books[posImage];
-    renderBookDetails(`api/books/${book.isbn}`);
+
+    renderDetails( book );
 }
 
-function renderBookDetail(book) {           // No need more modifying
-    document.querySelector('.book-title-details').innerHTML = book.title;
-    document.querySelector('.book-image-details').src = book.image;
-    document.querySelector('.book-isbn-details').innerHTML = book.isbn;
-    document.querySelector('.book-author-details').innerHTML = book.author;
-    document.querySelector('.book-genre-details').innerHTML = book.genre;
-    document.querySelector('.book-votes-details').innerHTML = book.votes;
-    document.querySelector('.book-description-details').innerHTML = book.description;
+function renderDetails( book ) {
+    const renderBookDetails = require('./for-browserify-book-details').renderBookDetails;
+    renderBookDetails(`api/books/${book.isbn}`);
 }
 
 const orderOptions = document.querySelector('.order-select');
@@ -217,5 +222,32 @@ orderOptions.addEventListener('change', () => {
     }
 });
 
+function updateBookView( bookToUpdate ) {
+    const id = bookJson.books.findIndex( book => book.isbn === bookToUpdate.isbn );
+
+    const fetchBookDetails = require('./for-browserify-book-details').getBookDetailsFromServer;
+    if( id >= 0){
+
+        fetchBookDetails( `api/books/${bookToUpdate.isbn}`)
+        .then( book => {
+            bookJson.books[id] = book;
+            const targetBook = document.querySelector(`#book-${id}`);
+
+            targetBook.innerHTML = getBookHtml( bookJson.books[id], id );
+            const button = document.querySelector(`#book-${id} .button-like`);
+            button.addEventListener('click', voteButton);
+
+            const img = document.querySelector(`#book-${id} .book-img`);
+            img.addEventListener('click', bookImageButton);
+        });
+
+    }
+
+}
 performGetRequest();
-addListenersToComponents();
+
+
+module.exports = {
+    performGetRequest,
+    updateBookView
+};
