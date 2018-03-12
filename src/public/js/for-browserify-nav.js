@@ -1,4 +1,5 @@
-( () => {
+const performGetRequest = require('./for-browserify-booklist').performGetRequest;
+const nav = () => {
 
     const sideMenu = document.querySelector('.side-menu');
     const searchBar = document.querySelector('#corner-search');
@@ -74,9 +75,11 @@
 
 
     }
-    function addListenersToSubMenuBooks() {
+
+    function addListenersToSubMenuBooks( parentListUrl ) {
         const subMenuBookList = document.querySelectorAll(".sub-side-menu >li");
 
+        const renderBookDetails = require('./for-browserify-book-details').renderBookDetails;
         subMenuBookList.forEach( li => {
             li.addEventListener('click', () =>{
                 const bookId = li.getAttribute('data-id');
@@ -86,6 +89,7 @@
     }
 
     function addListenersToGenres() {
+
         const menulist = document.querySelectorAll(".menu-item");
         menulist.forEach( menu => {
             menu.addEventListener('click', () => {
@@ -94,7 +98,7 @@
             });
         });
 
-        addListenersToSubMenuBooks();
+        addListenersToSubMenuBooks(  );
     }
 
     function addListenersToFilters( filter ) {
@@ -214,4 +218,5 @@
         });
     }
 
-})();
+};
+nav();
