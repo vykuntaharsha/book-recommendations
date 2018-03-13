@@ -185,7 +185,7 @@ function voteButton(event) {                // Just for Vote. No need more modif
         event.target.innerHTML = 'vote';
     }
     const book = bookJson.books[posVote];
-    const postVoteDataToServer = require('./for-browserify-book-details').postVoteDataToServer;
+    const postVoteDataToServer = require('./for-browserify-book-details').postDataToServer;
     const user = require('./for-browserify-index');
     postVoteDataToServer(`api/books/${book.isbn}/vote`, { user : user });
 
