@@ -19,7 +19,7 @@ function voteToggle(event) {
         event.target.classList.add('voted');
         document.querySelector('.vote-button').src = 'images/voted.svg';
     }
-    postVoteDataToServer( `api/books/${book.isbn}/vote`, { user : user});
+    postDataToServer( `api/books/${book.isbn}/vote`, { user : user});
     renderBookDescription();
 }
 
@@ -34,26 +34,26 @@ function renderToEdit() {
     document.querySelector('.book-author-details').outerHTML = `<input class="book-author-details title" type="text" value="${book.author}">`;
 
     document.querySelector('.book-genre-details').outerHTML = `<select class="book-genre-details title"> <select>`;
-    populateGenres();
+    populateGenres('.book-genre-details', true);
 
     document.querySelector('.book-description-details').outerHTML = `<div class="book-description-details title edit-description" contenteditable="true">${book.description}</div>`;
 }
 
-function populateGenres() {
+function populateGenres( selector, setOptionFlag ) {
     fetch('api/genres?all=true')
     .then(res => res.json())
     .then(data => data.genres)
     .then( genres => {
 
         const options = genres.map( genre => {
-            if(genre.id === book.genre.id){
+            if(setOptionFlag && genre.id === book.genre.id){
                 return `<option data-id="${genre.id}" data-name="${genre.name}" selected>${genre.name}</option>`
             }else {
                 return `<option data-id="${genre.id}" data-name="${genre.name}">${genre.name}</option>`
             }
         }).join('\n');
 
-        document.querySelector('.book-genre-details').innerHTML = options;
+        document.querySelector(selector).innerHTML = options;
     })
     .catch(error => console.log('error while populating genres' + error));
 }
@@ -69,8 +69,7 @@ function saveBookDetails() {
     book.genre.id = genreOption.getAttribute('data-id');
     book.genre.name = genreOption.getAttribute('data-name');
     book.description = document.querySelector('.book-description-details').innerHTML;
-
-    putBookDetailsToSever( `api/books/${book.isbn}`, {book : book})
+    putBookDetailsToSever( `api/books/${book.isbn}`, {book : book, user : user})
     .then( res => res.status)
     .then( status => {
         if( status === 204 ){
@@ -121,6 +120,7 @@ function renderBookDescription() {
         book.votes = bookFetched.votes;
         book.description = bookFetched.description;
         book.votedUsers = bookFetched.votedUsers;
+        book.createdUsers = bookFetched.createdUsers;
     })
     .then( () => {
         setBookDetails();
@@ -156,6 +156,13 @@ function setBookDetails() {
     document.querySelector('.book-genre-details').innerHTML = book.genre.name;
     document.querySelector('.book-votes-details').innerHTML = book.votes;
     document.querySelector('.book-description-details').innerHTML = book.description;
+
+    document.querySelector('.created-users').innerHTML = 'Created users:' + setCreatedUsers(book.createdUsers);
+}
+
+function setCreatedUsers( users ) {
+    const list = users.map( user => user.id ).join(',');
+    return list;
 }
 
 function getBookDetailsFromServer( url ) {
@@ -179,7 +186,7 @@ const renderBookDetails = (bookUrl) => {
     renderBookDescription();
 }
 
-function postVoteDataToServer(url, data) {
+function postDataToServer(url, data) {
     return fetch(url , {
         body: JSON.stringify(data),
         method: 'POST',
@@ -194,6 +201,7 @@ addListenersToComponents();
 
 module.exports = {
     renderBookDetails,
-    postVoteDataToServer,
-    getBookDetailsFromServer
+    postDataToServer,
+    getBookDetailsFromServer,
+    populateGenres
 };

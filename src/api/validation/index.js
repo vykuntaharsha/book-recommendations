@@ -30,8 +30,17 @@ function isValidUser( user ) {
     }
     return false;
 }
+
+function isValidBookData( book ) {
+    if( !book.title ) return false;
+    if( !isValidGenre( book.genre )) return false;
+
+    return true;
+}
+
 module.exports = {
     isValidBook,
     isValidGenre,
-    isValidUser
+    isValidUser,
+    isValidBookData
 };

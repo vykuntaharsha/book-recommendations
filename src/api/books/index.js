@@ -10,12 +10,15 @@ const bookWithId = require('./book-with-id');
 const updateBook = require('./update-book');
 const usersVotedForBook = require('./users-voted-for-book');
 const voteForBook = require('./vote-for-book');
+const createBook = require('./create-book');
 
 router.get('/', [books, booksStartWith, orderBooks, booksStartIndex, booksMaxResults]);
 router.get('/search', [books, searchWithFilters, searchWithKeyWords, orderBooks, booksStartIndex, booksMaxResults]);
+router.post('/book', createBook);
 router.get('/:id', bookWithId);
 router.put('/:id', updateBook);
 router.get('/:id/voted-users', usersVotedForBook);
 router.post('/:id/vote', voteForBook);
+
 
 module.exports = router;
