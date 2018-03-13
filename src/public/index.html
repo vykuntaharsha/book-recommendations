@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/books.css">
     <link rel="stylesheet" type="text/css" href="css/book-details.css">
+    <link rel="stylesheet" type="text/css" href="css/create-book.css">
 </head>
 <body>
     <header>
@@ -17,8 +18,9 @@
           <li><a id="nav-author" href="#sidebar">Author</a></li>
           <li><a id="nav-title" href="#sidebar">Title</a></li>
           <li><a id="nav-popular" href="#sidebar">Popular</a></li>
-          <input id="corner-search" name="search" placeholder="Search..."/><img id="search-icon" src="images/search.png">
+          <li><a id="nav-create" href="#create-book"> Create</a></li>
         </ul>
+        <input id="corner-search" name="search" placeholder="Search..."/><img id="search-icon" src="images/search.png">
       </nav>
       <span class="user-welcome"></span>
     </header>
@@ -164,10 +166,29 @@
             <h4 class="book-author-details title"></h4>
             <h5 class="book-isbn-details title"></h5>
             <h5 class="book-genre-details title"></h5>
+            <p class="created-users">Created users:</p>
             <hr/>
             <p class="book-description-details title"></p>
         </div>
     </div>
+</section>
+<section id="create-book" class="hide">
+    <div class="close">
+        <a class="create-book-close"href="#">close</a>
+    </div>
+    <span class="create-book-status"></span>
+    <input class="book-title-input" type="text" placeholder="Title" required/>
+    <input class="book-author-input" type="text" placeholder="Author"/>
+    <input class="book-image-input" type="url" placeholder="Image Url"/>
+    <p class="book-genre-input-label">Genre: </p>
+    <select class="book-genre-input" required>
+
+    </select>
+    <p class="book-description-input-label"> Description:</p>
+    <textarea class="book-description-input"rows="8" cols="80"></textarea>
+    <div class="create-button">
+        <button class="book-create-button">Create</button>
+    </div>    
 </section>
 <footer>
     <div class="connect-details footer">
