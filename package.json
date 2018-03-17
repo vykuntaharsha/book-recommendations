@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Book Recommendations is an SPA that allows users to enter/update book recommendations. The app will organize the listing of recommendations based on the data in the events and user choices.",
   "main": "index.js",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  },
   "directories": {
     "doc": "docs"
   },
