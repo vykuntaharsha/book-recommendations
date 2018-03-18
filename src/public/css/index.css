@@ -3,7 +3,10 @@ body{
     overflow-x: hidden;
     padding: 0px;
     margin: 0px;
+    line-height: 1.5;
+    font-family: "Aaux ProLight";
 }
+
 .slides {
   position: relative;
   margin-top: 50px;
@@ -57,7 +60,7 @@ body{
 }
 .search-container{
   position: absolute;
-  top:40%;
+  top:50%;
   left:25%;
   width: 50%;
   overflow-x: hidden;
