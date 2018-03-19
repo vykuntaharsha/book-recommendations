@@ -11,6 +11,7 @@ class BRBookList extends Component {
                 id={index}
                 user={this.props.user}
                 setBookDetailsUrl={this.props.setBookDetailsUrl}
+                setLoaded={this.props.setLoaded}
             />
         );
         return books;

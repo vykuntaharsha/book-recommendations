@@ -8,7 +8,7 @@ const orderBooks = require('../books/order-books');
 const booksStartIndex = require('../books/books-start-index');
 const booksMaxResults = require('../books/books-max-results');
 const searchWithFilters = require('../search/search-with-filters');
-const searchWithKeyWords = require('../search/search-with-keyWords');
+const searchWithKeyWords = require('../search/search-with-keywords');
 
 
 router.get('/', [genres, genresStartIndex, genresMaxResults]);

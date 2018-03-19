@@ -95,6 +95,7 @@ class BRBookListPages extends Component {
                     booklist={this.state.books}
                     user={this.state.user}
                     setBookDetailsUrl={this.props.setBookDetailsUrl}
+                    setLoaded={this.props.setLoaded}
                 />
                 <div className="book-list-pages">
                     <BRPages

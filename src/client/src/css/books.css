@@ -1,7 +1,7 @@
 #booklist {
 	display: inline-block;
-	margin-left: 250px;
-	padding-top: 100px;
+	margin-left: 25%;
+	padding-top: 200px;
 	width: 80%;
 }
 
@@ -13,10 +13,12 @@
 	margin-right: 10%;
 	display: block;
 	text-align: right;
+	margin-bottom: 5%;
 }
 
 .order-label {
 	display: inline;
+	margin-right: 1%;
 }
 
 .order-select {
@@ -34,16 +36,18 @@
 
 .books > li {
 	display: inline-block;
-	width: 150px;
-	margin-right: 8%;
+	width: 200px;
+	margin-right: 3%;
 	margin-bottom: 5%;
 }
 
 .book-title {
 	text-align: center;
-	margin-bottom: -5%;
-	width: 150px;
+	margin-bottom: -20%;
+	width: 200px;
+	font-size: 0.9em;
 	height: 72px;
+	color: #6d7993;
 }
 
 .book-author {
@@ -51,12 +55,26 @@
 }
 
 .book-img {
-	width: 150px;
-	height: 180px;
+	width: 200px;
+	height: 250px;
 }
 
 .book-author {
 	color: #9099A2;
+}
+
+.button-like{
+	width: 80px;
+	height: 30px;
+	margin-left: 60px;
+	background-color: #FFFFFF;
+	border: #6d7993 1px solid;
+	border-radius: 5px;
+	color: #666666;
+}
+
+.button-like:hover{
+	background-color: rgba(191, 170, 183, 0.5);
 }
 
 .book-vote {
@@ -89,11 +107,11 @@
 	cursor: pointer;
 }
 .pages .page:hover{
-	background-color: lavender;
+	background-color: rgba(191, 170, 183, 0.2);
 }
 
 .page.active{
-	background-color: lavender;
+	background-color: rgba(191, 170, 183, 0.2);
 }
 
 .pages .disabled{
@@ -104,10 +122,9 @@
 	cursor: default;
 }
 
-.order-button{
+select{
 	cursor: pointer;
-}
-
-.order-select{
-	cursor: pointer;
+	width: 200px;
+	height: 30px;
+	background-color: #ffffff;
 }

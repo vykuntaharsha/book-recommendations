@@ -11,8 +11,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "client": "cd src/client && npm start",
-    "start": " node src/app-server.js & npm run client",
+    "heroku-postbuild": "npm run client",
+    "client": "cd src/client && npm install && npm run build",
+    "start": " node src/app-server.js & cd src/client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

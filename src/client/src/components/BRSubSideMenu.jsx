@@ -109,7 +109,6 @@ class BRSubSideMenu extends Component {
 
 
     bookOnClickListener( event ) {
-        document.getElementById('book-details').scrollIntoView();
         this.props.setBookDetailsUrl()
     }
 

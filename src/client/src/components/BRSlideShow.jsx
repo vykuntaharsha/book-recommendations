@@ -49,25 +49,21 @@ class BRSlideShow extends Component {
     getSlide( key, image , active){
         if( !active ){
             return (
-                <div key={key}
-                    className="slides fade-slides">
-                    <img className="img-slides"
+                    <img key={key}
+                        className="img-slides"
                         src={image}
                         alt="slide show"
                         style={{display : "none"}}
                     />
-                </div>
             );
         }
         return (
-            <div key={key}
-                className="slides fade-slides">
-                <img className="img-slides"
+                <img key={key}
+                    className="img-slides"
                     src={image}
                     alt="slide show"
                     style={{display : "block"}}
                 />
-            </div>
         );
     }
 

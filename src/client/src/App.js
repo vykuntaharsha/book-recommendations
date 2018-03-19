@@ -27,7 +27,8 @@ class App extends Component {
             bookDetailsUrl : null,
             filter : null,
             user : null,
-            create : false
+            create : false,
+            loaded : false
         };
         this.bookListSection = this.getBookListSection();
         this.sideNavBarSection = this.getSideNavBarSection();
@@ -36,6 +37,7 @@ class App extends Component {
         this.setFilter = this.setFilter.bind(this);
         this.setBookDetailsUrl = this.setBookDetailsUrl.bind(this);
         this.renderCreateBook = this.renderCreateBook.bind(this);
+        this.setLoaded = this.setLoaded.bind(this);
     }
 
     componentDidMount(){
@@ -88,6 +90,7 @@ class App extends Component {
                 user={user}
                 setBookDetailsUrl={this.setBookDetailsUrl}
                 setBookListUrl={this.setBookListUrl}
+                setLoaded={this.setLoaded}
             />
         );
     }
@@ -98,6 +101,7 @@ class App extends Component {
         return (
             <BRBookDetailedCard
                 bookDetailsUrl={ url}
+                setLoaded={this.setLoaded}
                 user={user}/>
         );
     }
@@ -129,6 +133,9 @@ class App extends Component {
         return '';
     }
 
+    setLoaded(flag){
+        this.setState({loaded : flag});
+    }
     render() {
         if(!this.state.user) return <h1> Loading... </h1>;
         return (
@@ -152,9 +159,9 @@ class App extends Component {
                         />
                       </div>
                 </main>
-                {this.sideNavBarSection}
-                {this.bookListSection}
-                {this.bookDetailsSection}
+                {this.getSideNavBarSection()}
+                {this.getBookListSection()}
+                {this.getBookDetailsSection()}
                 {this.getCreateBookSection()}
                 <BRFooter/>
             </div>

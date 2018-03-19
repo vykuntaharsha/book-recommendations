@@ -24,6 +24,7 @@ const BROrderBooks = ({url, setBookListUrl, setOrderBy, defaultOrderBy}) => {
         <div className='order-section'>
             Order:
             <select
+                className='order-select'
                 onChange={orderListener}
                 value={defaultOrderBy}
                 >

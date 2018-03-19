@@ -10,13 +10,17 @@ const bodyParser = require('body-parser');
 app.set('json spaces', 2);
 
 //setting the app to use required modules
-app.use(express.static('src/public'));
+const staticFiles = express.static('src/client/build');
+
+app.use(staticFiles);
 app.use(bodyParser.json({
     limit : '10kb',
     extended : true
 }));
+
 app.use('/api', api);
 app.use('/users', users);
+app.use('/*', staticFiles);
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);

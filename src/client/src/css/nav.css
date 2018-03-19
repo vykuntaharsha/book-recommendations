@@ -20,7 +20,7 @@ header{
 }
 
 .nav-text{
-    height: 50px;
+    height: 90px;
     text-align: right;
     font-size: 22px;
     color: #FFF;
@@ -28,7 +28,7 @@ header{
 
 .nav-logo > img{
     position: absolute;
-    top: 40px;
+    top: 60px;
 }
 
 .main-menu{
@@ -48,13 +48,16 @@ header{
 }
 
 .main-menu li:hover{
-    color: #000000;
-    border-bottom: #444359 solid 3px;
+    border-bottom: #96858F solid 3px;
 }
 
 .main-menu a:link{
     color: #6d7993;
     text-decoration: none;
+}
+
+.main-menu a:hover{
+   color: #96858F;
 }
 
 #nav-search-img{
@@ -64,7 +67,7 @@ header{
     right: 30px;
     cursor: pointer;
     vertical-align: middle;
-    top: 30px;
+    top: 35px;
 }
 
 #nav-search-input{
@@ -73,15 +76,15 @@ header{
     font-size: 16px;
     padding: 10px;
     position: absolute;
-    top: 20px;
-    right: 15px;
+    top: 26px;
+    right: 20px;
 }
 
 
 /*-------below are side menu styles-------------------------*/
 
 .side-menu {
-    height: 500px;
+    height: 600px;
     overflow-y: scroll;
     width: 200px;
     border-radius: 4px;
@@ -105,26 +108,23 @@ header{
 /*---Sub of side-menu---*/
 .sub-side-menu {
     display: none;
-    background: #d5d5d5;
-    opacity: 0.5;
     font-size: 12px;
 }
 
 .sub-side-menu li {
-    border-bottom: 1px solid #4b4a5e;
     list-style-type: none;
 }
 
 .sub-side-menu a {
     display: block;
     text-decoration: none;
-    color: #5d5d5d;
+    color: #919191;
     padding: 6%;
     transition: all 0.25s ease;
 }
 
 .sub-side-menu a:hover {
-    background: #5d5d5d;
+    background: rgba(191, 170, 183, 0.1);
     color: #000000;
 }
 
@@ -132,7 +132,7 @@ header{
 
 #sidebar {
     position: absolute;
-    padding-top: 100px;
+    padding-top: 200px;
 }
 
 .user-welcome{
@@ -142,7 +142,7 @@ header{
     padding: 10px;
     font-size: 20px;
     font-family: "Lato", Arial, Helvetica, sans-serif;
-    background-color: lightgreen;
+    background-color: #6d7993;
     color: snow;
     text-align: center;
 }
