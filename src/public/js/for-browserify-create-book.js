@@ -8,7 +8,7 @@ function createBook() {
     book.title = document.querySelector('.book-title-input').value;
     book.author = document.querySelector('.book-author-input').value;
     book.image = document.querySelector('.book-image-input').value;
-    book.description = document.querySelector('.book-image-input').value;
+    book.description = document.querySelector('.book-description-input').value;
     const genreElement = document.querySelector('.book-genre-input');
 
     const genreOption = genreElement.options[genreElement.selectedIndex];
@@ -37,7 +37,7 @@ function renderCreateBook() {
     document.querySelector('.book-title-input').value = '';
     document.querySelector('.book-author-input').value = '';
     document.querySelector('.book-image-input').value = '';
-    document.querySelector('.book-image-input').value = '';
+    document.querySelector('.book-description-input').value = '';
     const populateGenres = require('./for-browserify-book-details').populateGenres;
 
     populateGenres('.book-genre-input');
