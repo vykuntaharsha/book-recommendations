@@ -37,7 +37,10 @@ class BRBookCard extends Component {
 
     vote( event ){
         postVote( this.state.book.isbn, this.props.user)
-        .then(() => this.obtainBook());
+        .then(() => {
+            this.props.setLoaded(true);
+            this.obtainBook();
+        });
     }
 
     renderBookDetails(){

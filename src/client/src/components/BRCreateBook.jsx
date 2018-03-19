@@ -118,6 +118,7 @@ class BRCreateBook extends Component{
                     </button>
                 </div>
                 <p className="create-book-status"></p>
+                <p className="create-header">Create your own book </p>
                 Title*:
                 <input
                     className="book-title-input"

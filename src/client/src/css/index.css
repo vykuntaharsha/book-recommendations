@@ -3,7 +3,8 @@ body{
     overflow-x: hidden;
     padding: 0px;
     margin: 0px;
-    font-family: Helvetica sans-serif;
+    line-height: 1.5;
+    font-family: "Aaux ProLight";
 }
 .slides {
   position: relative;
@@ -47,8 +48,6 @@ a{
 
 
 .fade-slides {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
   animation-name: fade;
   animation-duration: 1.5s;
 }
@@ -61,7 +60,7 @@ a{
 }
 .search-container{
   position: absolute;
-  top:40%;
+  top:50%;
   left:25%;
   width: 50%;
   overflow-x: hidden;
@@ -99,6 +98,7 @@ a{
   padding: 4px 10px;
   font-size: 17px;
   border: none;
+  margin-left: 6%;
 }
 
 footer{
