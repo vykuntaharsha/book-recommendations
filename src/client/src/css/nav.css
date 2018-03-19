@@ -1,0 +1,148 @@
+/*
+-------below are main menu styles-------------------------
+*/
+header{
+    display: inline;
+    background-color: white;
+    width:100%;
+    margin:0;
+    padding:0;
+    position: fixed;
+    top:0px;
+    z-index: 1;
+}
+
+.nav-logo{
+
+    position: absolute;
+    left: 40px;
+    top: -40px;
+}
+
+.nav-text{
+    height: 50px;
+    text-align: right;
+    font-size: 22px;
+    color: #FFF;
+}
+
+.nav-logo > img{
+    position: absolute;
+    top: 40px;
+}
+
+.main-menu{
+    background-color: white;
+    list-style-type: none;
+    margin-left: 200px;
+    margin-right: 100px;
+}
+.main-menu li{
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 15%;
+    min-width: 100px;
+    color: #6d7993;
+}
+
+.main-menu li:hover{
+    color: #000000;
+    border-bottom: #444359 solid 3px;
+}
+
+.main-menu a:link{
+    color: #6d7993;
+    text-decoration: none;
+}
+
+#nav-search-img{
+    display:inline;
+    width: 24px;
+    position: absolute;
+    right: 30px;
+    cursor: pointer;
+    vertical-align: middle;
+    top: 30px;
+}
+
+#nav-search-input{
+    display: none;
+    width: 250px;
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+}
+
+
+/*-------below are side menu styles-------------------------*/
+
+.side-menu {
+    height: 500px;
+    overflow-y: scroll;
+    width: 200px;
+    border-radius: 4px;
+    list-style-type: none;
+}
+
+.side-menu .menu-item {
+    cursor: pointer;
+    display: block;
+    padding: 8%;
+    color: #6d7993;
+    font-size: 14px;
+    border-bottom: 1px solid #CCC;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.side-menu li:last-child .menu-item {
+    border-bottom: 0;
+}
+/*---Sub of side-menu---*/
+.sub-side-menu {
+    display: none;
+    background: #d5d5d5;
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+.sub-side-menu li {
+    border-bottom: 1px solid #4b4a5e;
+    list-style-type: none;
+}
+
+.sub-side-menu a {
+    display: block;
+    text-decoration: none;
+    color: #5d5d5d;
+    padding: 6%;
+    transition: all 0.25s ease;
+}
+
+.sub-side-menu a:hover {
+    background: #5d5d5d;
+    color: #000000;
+}
+
+/*-----genre part-----*/
+
+#sidebar {
+    position: absolute;
+    padding-top: 100px;
+}
+
+.user-welcome{
+    position: absolute;
+    top: 0px;
+    width: inherit;
+    padding: 10px;
+    font-size: 20px;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    background-color: lightgreen;
+    color: snow;
+    text-align: center;
+}

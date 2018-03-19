@@ -209,7 +209,7 @@ const nav = () => {
 
         const list = [];
         authors.forEach( author => {
-            const listItem = `<li data-id=${author}><a href=#booklist> ${author} </a></li>`;
+            const listItem = `<li data-id="${author}"><a href=#booklist> ${author} </a></li>`;
             list.push(listItem);
         });
 

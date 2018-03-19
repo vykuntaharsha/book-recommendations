@@ -1,4 +1,4 @@
-const performGetRequest = require('./for-browserify-booklist');
+    const performGetRequest = require('./for-browserify-booklist').performGetRequest;
 let slideIndex=0;
 showSlides();
 addListenersToSearchBar();

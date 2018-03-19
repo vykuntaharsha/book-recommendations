@@ -1,0 +1,59 @@
+#create-book{
+    margin: 50px auto;
+    display: block;
+    width: 50%;
+}
+
+.close{
+    text-align: right;
+}
+
+.create-book-close{
+    cursor: pointer;
+    border-bottom: 1px solid;
+    padding-bottom: 1px;
+    text-decoration: none;
+    color: black;
+}
+
+.create-book-close:hover{
+    color: lightgrey
+}
+
+#create-book input{
+    display: block;
+    width: 50%;
+    margin: 10px;
+    padding: 10px;
+
+}
+
+#create-book select{
+    display: block;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#create-book textarea{
+    display: block;
+    margin: 10px;
+    resize: none;
+    width: 80%;
+    height: 200px;
+}
+
+.book-create-button{
+    cursor: pointer;
+}
+
+.book-create-button:hover{
+    color: lightgrey;
+}
+
+#create-book.hide{
+    display: none;
+}
+
+.create-button{
+    text-align: right;
+}

@@ -1,0 +1,113 @@
+#booklist {
+	display: inline-block;
+	margin-left: 250px;
+	padding-top: 100px;
+	width: 80%;
+}
+
+#booklist.hide{
+	display: none;
+}
+
+.order-section {
+	margin-right: 10%;
+	display: block;
+	text-align: right;
+}
+
+.order-label {
+	display: inline;
+}
+
+.order-select {
+	display: inline;
+}
+
+.booklist{
+	width: 100%;
+}
+
+.books {
+	list-style-type: none;
+	width: 100%;
+}
+
+.books > li {
+	display: inline-block;
+	width: 150px;
+	margin-right: 8%;
+	margin-bottom: 5%;
+}
+
+.book-title {
+	text-align: center;
+	margin-bottom: -5%;
+	width: 150px;
+	height: 72px;
+}
+
+.book-author {
+	text-align: center;
+}
+
+.book-img {
+	width: 150px;
+	height: 180px;
+}
+
+.book-author {
+	color: #9099A2;
+}
+
+.book-vote {
+	display: inline;
+	margin-left: 25px;
+}
+
+.pages{
+	text-align: center;
+	padding: 0px;
+	list-style-type: none;
+}
+
+.pages a{
+	text-decoration: none;
+	color: black;
+}
+
+.pages >li{
+	color: black;
+	display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pages .page{
+	cursor: pointer;
+}
+.pages .page:hover{
+	background-color: lavender;
+}
+
+.page.active{
+	background-color: lavender;
+}
+
+.pages .disabled{
+	background-color: lightgrey;
+}
+
+.disabled a{
+	cursor: default;
+}
+
+.order-button{
+	cursor: pointer;
+}
+
+.order-select{
+	cursor: pointer;
+}
