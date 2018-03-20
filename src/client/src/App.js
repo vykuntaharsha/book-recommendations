@@ -76,6 +76,7 @@ class App extends Component {
 
     setBookDetailsUrl( url ){
         this.bookDetailsSection = this.getBookDetailsSection( url );
+        document.querySelector('#book-details').scrollIntoView();
         this.setState({
             bookDetailsUrl : url
         });
@@ -122,6 +123,7 @@ class App extends Component {
     }
 
     getCreateBookSection(){
+
         if(this.state.create) {
             return (
                 <BRCreateBook
